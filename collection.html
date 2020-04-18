@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>收藏</title>
+    <script src="frame/bootstrap/js/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="frame/bootstrap/css/bootstrap/3.3.6/bootstrap.min.css">
+    <script src="frame/bootstrap/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script src="frame/vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/collection.css">
+
+</head>
+<body>
+
+<div class="main">
+    <div class="all_cards">
+        <ul class="career" id="career">
+            <li v-for="item in imgs">
+                <img :src="item">
+            </li>
+        </ul>
+    </div>
+    <div class="my_deck">
+    </div>
+</div>
+</body>
+<script src="js/main.js"></script>
+</html>
