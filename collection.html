@@ -11,20 +11,38 @@
     <script src="frame/bootstrap/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <script src="frame/vue.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/collection.css">
-
 </head>
 <body>
 
-<div class="main">
+<div class="main" id="main">
     <div class="all_cards">
-        <ul class="career" id="career">
-            <li v-for="item in imgs">
-                <img :src="item">
+        <ul class="career">
+            <li v-for="(item,num) in occupy_img" :class="{chosen:item.isChosen}">
+                <a href="#"><img :src="item.src" alt="" @click="chosen(num)"></a>
             </li>
         </ul>
+        <div class="cardpool">
+            <div class="occupy">{{occupy}}</div>
+            <div class="page">1</div>
+            <ul class="cards">
+                <li class="card" v-for="item in card_img">
+                    <a href="#"><img :src="item.src" alt=""></a>
+                </li>
+            </ul>
+            <div class="search">
+                <div class="hexagon" v-for="num in nums">{{num}}</div>
+            </div>
+        </div>
     </div>
     <div class="my_deck">
+        <div class="my_deck_title">我的套牌</div>
+        <a href="#">
+            <div class="my_deck_name" v-for="item in decks" :style="{backgroundImage:'url(' + item + ')'}">
+                <div class="my_deck_words">宇宙蛋</div>
+            </div>
+        </a>
     </div>
+
 </div>
 </body>
 <script src="js/main.js"></script>

@@ -1,3 +1,10 @@
+@keyframes chosen {
+    100%{
+        transform: scale(1.4);
+    }
+}
+
+
 body {
     font-family: Arial;
     padding: 0;
@@ -25,35 +32,174 @@ li {
     margin: 0 auto;
     width: 1000px;
     height: 750px;
-    background-color: #2aabd2;
+    font-size: 0;
 }
 
 .all_cards {
+    display: inline-block;
     width: 80%;
     height: 100%;
-    background-color: #3c763d;
 }
 
 .career {
     width: 100%;
-    height: 50px;
+    height: 30px;
     padding: 0;
-    background-color: red;
+    margin: 0;
+    margin-top: 20px;
+    background-color: pink;
 }
 
 .career li {
     display: inline-block;
     height: 30px;
     width: 35px;
-    margin-top: 20px;
+    margin-top: 4px;
     margin-left: 14px;
     border: #cea65a solid 5px;
     border-bottom: 0;
+    border-radius: 30%;
     overflow: hidden;
+    opacity: 0.8;
 }
-.career li img{
+.career li:hover {
+    opacity: 1;
+}
+.chosen{
+    animation-name: chosen;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+.career li img {
     position: relative;
     width: 45px;
     top: -10px;
     left: -11px;
+}
+
+.cardpool {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background: url("../img/backgrouond.jpg");
+    background-size: cover;
+}
+
+.occupy {
+    font-size: 30px;
+    position: absolute;
+    left:10px;
+    top: 28px;
+    width: 100%;
+    text-align: center;
+}
+
+.cards {
+    font-size: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding: 90px 0px;
+}
+
+.card {
+    display: inline-block;
+    width: 25%;
+}
+
+.card img {
+    width: 200px;
+}
+
+.page {
+    font-size: 20px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 670px;
+}
+
+.search {
+    margin-left: 50px;
+    margin-top: -70px;
+}
+
+.hexagon {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 34.6px;
+    background-color: #9acfea;
+    font-size: 25px;
+    margin-left: 30px;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+.hexagon:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 20px;
+    border-width: 17.3px 10.3px;
+    border-style: solid;
+    border-color: transparent #9acfea transparent transparent;
+}
+
+.hexagon:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 20px;
+    border-width: 17.3px 10.3px;
+    border-style: solid;
+    border-color: transparent transparent transparent #9acfea;
+    top: 0;
+    z-index: -1;
+}
+
+.my_deck {
+    float: right;
+    width: 20%;
+    height: 97%;
+    background-color: #2c2339;
+    font-size: 12px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.my_deck_title {
+    font-size: 20px;
+    text-align: center;
+    background-color: #cebc94;
+    margin: 10px 40px 0px 40px;
+}
+
+.my_deck_name {
+    position: relative;
+    width: 90%;
+    height: 80px;
+    padding: 20px 0;
+    margin: 10px auto;
+    background-size: 350px;
+    background-position: -80px -90px;
+    border: #f6d577 solid 10px;
+    opacity: 0.8;
+}
+
+.my_deck_name:hover {
+    opacity: 1;
+}
+
+.my_deck_words {
+    position: absolute;
+    top: 33px;
+    left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px black;
 }
