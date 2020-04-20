@@ -1,19 +1,115 @@
 @keyframes chosen {
-    100%{
+    100% {
         transform: scale(1.4);
     }
 }
 
+@keyframes cardMove0 {
+    100% {
+        transform: translate(300px, 0px) scale(1.7);
+    }
+}
+
+@keyframes cardMove1 {
+    100% {
+        transform: translate(120px, 0px) scale(1.7);
+    }
+}
+
+@keyframes cardMove2 {
+    100% {
+        transform: translate(-60px, 0px) scale(1.7);
+    }
+}
+
+@keyframes cardMove3 {
+    100% {
+        transform: translate(-240px, 0px) scale(1.7);
+    }
+}
+
+@keyframes cardMove4 {
+    100% {
+        transform: translate(300px, -300px) scale(1.7);
+    }
+}
+
+@keyframes cardMove5 {
+    100% {
+        transform: translate(120px, -300px) scale(1.7);
+    }
+}
+
+@keyframes cardMove6 {
+    100% {
+        transform: translate(-60px, -300px) scale(1.7);
+    }
+}
+
+@keyframes cardMove7 {
+    100% {
+        transform: translate(-240px, -300px) scale(1.7);
+    }
+}
+
+@keyframes hideCard0 {
+    0% {
+        transform: translate(300px, 0px) scale(1.7);
+    }
+}
+
+@keyframes hideCard1 {
+    0% {
+        transform: translate(120px, 0px) scale(1.7);
+    }
+}
+
+@keyframes hideCard2 {
+    0% {
+        transform: translate(-60px, 0px) scale(1.7);
+    }
+}
+
+@keyframes hideCard3 {
+    0% {
+        transform: translate(-240px, 0px) scale(1.7);
+    }
+}
+
+@keyframes hideCard4 {
+    0% {
+        transform: translate(300px, -300px) scale(1.7);
+    }
+}
+
+@keyframes hideCard5 {
+    0% {
+        transform: translate(120px, -300px) scale(1.7);
+    }
+}
+
+@keyframes hideCard6 {
+    0% {
+        transform: translate(-60px, -300px) scale(1.7);
+    }
+}
+
+@keyframes hideCard7 {
+    0% {
+        transform: translate(-240px, -300px) scale(1.7);
+    }
+}
 
 body {
     font-family: Arial;
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 
 a:hover {
     text-decoration: none;
-    color: #2aabd2
+    color: #2aabd2;
 }
 
 a {
@@ -28,11 +124,32 @@ li {
     list-style: none;
 }
 
+.bigimg {
+    position: absolute;
+    width: 340px;
+    z-index: 2;
+    left: 530px;
+    top: 36px;
+    display: none;
+}
+
 .main {
     margin: 0 auto;
     width: 1000px;
     height: 750px;
     font-size: 0;
+    z-index: 0;
+}
+
+.shadow {
+    filter: blur(5px);
+}
+
+.mask {
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    z-index: 3;
 }
 
 .all_cards {
@@ -45,8 +162,7 @@ li {
     width: 100%;
     height: 30px;
     padding: 0;
-    margin: 0;
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     background-color: pink;
 }
 
@@ -62,14 +178,17 @@ li {
     overflow: hidden;
     opacity: 0.8;
 }
+
 .career li:hover {
     opacity: 1;
 }
-.chosen{
+
+.chosen {
     animation-name: chosen;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
 }
+
 .career li img {
     position: relative;
     width: 45px;
@@ -85,10 +204,10 @@ li {
     background-size: cover;
 }
 
-.occupy {
+.profession {
     font-size: 30px;
     position: absolute;
-    left:10px;
+    left: 10px;
     top: 28px;
     width: 100%;
     text-align: center;
@@ -102,12 +221,104 @@ li {
 }
 
 .card {
+    position: relative;
     display: inline-block;
     width: 25%;
 }
 
 .card img {
     width: 200px;
+    cursor: pointer;
+}
+
+.card img:hover {
+    filter: drop-shadow(0px -0px 20px white);
+}
+
+.card .absimg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.cardMove0 {
+    animation: cardMove0 0.3s forwards;
+    z-index: 1;
+}
+
+.cardMove1 {
+    animation: cardMove1 0.3s forwards;
+    z-index: 1;
+}
+
+.cardMove2 {
+    animation: cardMove2 0.3s forwards;
+    z-index: 1;
+}
+
+.cardMove3 {
+    animation: cardMove3 0.3s forwards;
+    z-index: 1;
+}
+
+.cardMove4 {
+    animation: cardMove4 0.3s forwards;
+    z-index: 1;
+}
+
+.cardMove5 {
+    animation: cardMove5 0.3s forwards;
+    z-index: 1;
+}
+
+.cardMove6 {
+    animation: cardMove6 0.3s forwards;
+    z-index: 1;
+}
+
+.cardMove7 {
+    animation: cardMove7 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard0 {
+    animation: hideCard0 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard1 {
+    animation: hideCard1 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard2 {
+    animation: hideCard2 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard3 {
+    animation: hideCard3 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard4 {
+    animation: hideCard4 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard5 {
+    animation: hideCard5 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard6 {
+    animation: hideCard6 0.3s forwards;
+    z-index: 1;
+}
+
+.hideCard7 {
+    animation: hideCard7 0.3s forwards;
+    z-index: 1;
 }
 
 .page {
@@ -115,7 +326,9 @@ li {
     position: absolute;
     width: 100%;
     text-align: center;
-    top: 670px;
+    top: 671px;
+    left: 9px;
+    color: #8b7c57;
 }
 
 .search {
@@ -128,14 +341,14 @@ li {
     position: relative;
     width: 20px;
     height: 34.6px;
-    background-color: #9acfea;
+    background-color: #4d97fe;
     font-size: 25px;
     margin-left: 30px;
-    color: white;
+    color: #ffffff;
     text-shadow: 1px 1px black;
 }
 
-.hexagon:before {
+.hexagon::before {
     content: '';
     display: block;
     position: absolute;
@@ -144,10 +357,10 @@ li {
     right: 20px;
     border-width: 17.3px 10.3px;
     border-style: solid;
-    border-color: transparent #9acfea transparent transparent;
+    border-color: transparent #4d97fe transparent transparent;
 }
 
-.hexagon:after {
+.hexagon::after {
     content: '';
     display: block;
     position: absolute;
@@ -155,12 +368,21 @@ li {
     height: 0;
     left: 20px;
     border-width: 17.3px 10.3px;
-    border-style: solid;
-    border-color: transparent transparent transparent #9acfea;
-    top: 0;
     z-index: -1;
+    border-style: solid;
+    border-color: transparent transparent transparent #4d97fe;
+    top: 0;
 }
-
+.search div{
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.search div:hover{
+    opacity: 0.2;
+}
+.opacity{
+    opacity: 0.2;
+}
 .my_deck {
     float: right;
     width: 20%;
@@ -187,11 +409,11 @@ li {
     background-size: 350px;
     background-position: -80px -90px;
     border: #f6d577 solid 10px;
-    opacity: 0.8;
+    border-radius: 3px;
 }
 
 .my_deck_name:hover {
-    opacity: 1;
+    filter: drop-shadow(0px 0px 10px white);
 }
 
 .my_deck_words {

@@ -13,37 +13,41 @@
     <link rel="stylesheet" type="text/css" href="css/collection.css">
 </head>
 <body>
-
-<div class="main" id="main">
-    <div class="all_cards">
-        <ul class="career">
-            <li v-for="(item,num) in occupy_img" :class="{chosen:item.isChosen}">
-                <a href="#"><img :src="item.src" alt="" @click="chosen(num)"></a>
-            </li>
-        </ul>
-        <div class="cardpool">
-            <div class="occupy">{{occupy}}</div>
-            <div class="page">1</div>
-            <ul class="cards">
-                <li class="card" v-for="item in card_img">
-                    <a href="#"><img :src="item.src" alt=""></a>
+<div id="everything">
+    <img :src="bigimg.src" alt="" class="bigimg">
+    <div :class="{mask:isShadow}" @click="hidebigimg"></div>
+    <div class="main" :class="{shadow:isShadow}">
+        <div class="all_cards">
+            <ul class="career">
+                <li v-for="(item,num) in profession_img" :class="{chosen:item.isChosen}">
+                    <a href="#"><img :src="item.src" alt="" @click="chosen(num)"></a>
                 </li>
             </ul>
-            <div class="search">
-                <div class="hexagon" v-for="num in nums">{{num}}</div>
+            <div class="cardpool">
+                <div class="profession">{{profession}}</div>
+                <div class="page">1</div>
+                <ul class="cards">
+                    <li class="card" v-for="(item,num) in card_img">
+                        <img :src="item.src" alt="">
+                        <img class="absimg" :src="item.src" alt="" @click="cardMove(num)" :class="item.class">
+                    </li>
+                </ul>
+                <div class="search">
+                    <div class="hexagon" v-for="num in nums" @click="clicknums(event)">{{num}}</div>
+                </div>
             </div>
         </div>
+        <div class="my_deck">
+            <div class="my_deck_title">我的套牌</div>
+            <a href="#">
+                <div class="my_deck_name" v-for="item in decks" :style="{backgroundImage:'url(' + item + ')'}" @click="clickmydeck(event)">
+                    <div class="my_deck_words">卡组</div>
+                </div>
+            </a>
+        </div>
     </div>
-    <div class="my_deck">
-        <div class="my_deck_title">我的套牌</div>
-        <a href="#">
-            <div class="my_deck_name" v-for="item in decks" :style="{backgroundImage:'url(' + item + ')'}">
-                <div class="my_deck_words">宇宙蛋</div>
-            </div>
-        </a>
-    </div>
-
 </div>
+>
 </body>
 <script src="js/main.js"></script>
 </html>
