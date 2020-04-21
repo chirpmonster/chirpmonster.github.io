@@ -101,15 +101,16 @@
 }
 
 @keyframes deckMove {
-    5%{
-        transform: scale(1.1);
+    5% {
+        transform: scale(1.12);
     }
-    100%{
-        top:-43px;
-        transform: scale(1.1);
+    100% {
+        top: -45px;
+        transform: scale(1.12);
     }
 
 }
+
 body {
     font-family: Arial;
     padding: 0;
@@ -137,7 +138,7 @@ li {
 .bigimg {
     position: absolute;
     width: 340px;
-    z-index: 2;
+    z-index: 999;
     left: 530px;
     top: 36px;
     display: none;
@@ -383,16 +384,20 @@ li {
     border-color: transparent transparent transparent #4d97fe;
     top: 0;
 }
-.search div{
+
+.search div {
     transition: all 0.3s;
     cursor: pointer;
 }
-.search div:hover{
+
+.search div:hover {
     opacity: 0.2;
 }
-.opacity{
+
+.opacity {
     opacity: 0.2;
 }
+
 .my_deck {
     float: right;
     width: 20%;
@@ -407,14 +412,20 @@ li {
     font-size: 20px;
     text-align: center;
     background-color: #cebc94;
-    margin: 10px 40px 0px 40px;
+    margin: 10px 40px;
+}
+
+.my_deck_content {
+    background-color: #2e6da4;
+    padding-top: 1px;
+    width: 100%;
+    height: 88%;
 }
 
 .my_deck_name {
     position: relative;
     width: 90%;
     height: 80px;
-    padding: 20px 0;
     margin: 10px auto;
     background-size: 350px;
     background-position: -80px -90px;
@@ -424,6 +435,7 @@ li {
 
 .my_deck_name:hover {
     filter: drop-shadow(0px 0px 10px white);
+    cursor: pointer;
 }
 
 .my_deck_words {
@@ -435,6 +447,74 @@ li {
     color: white;
     text-shadow: 2px 2px black;
 }
+.delete_deck{
+    position: absolute;
+    top:-5px;
+    left:145px;
+    font-size: 20px;
+    z-index: 1;
+    color: transparent;
+}
+.delete_deck:hover{
+    color: white;
+}
 .deckMove {
-    animation: deckMove 300ms forwards linear;
+    animation: deckMove 200ms forwards linear;
+}
+
+.my_deck_list {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px black;
+    transform-style:preserve-3d;
+}
+.my_deck_list_show {
+    transform: rotateX(-90deg);
+    transition: all 0.5s;
+}
+.my_deck_list_hide {
+    transform: rotateX(0deg);
+    transition: all 0.5s;
+}
+
+.my_deck_list :first-child {
+    position: absolute;
+    background-color: purple;
+    width: 100%;
+    height: 34px;
+    padding: 0px 10px;
+    text-align: center;
+    top: -18px;
+    left: 17px;
+    transform: rotateX(90deg) translateZ(17px);
+}
+
+.my_deck_list :last-child {
+    position: absolute;
+    background-color: purple;
+    width: 100%;
+    height: 34px;
+    padding: 0px 10px;
+    text-align: center;
+    top: -18px;
+    left: 17px;
+    transform: translateZ(17px);
+}
+
+.my_deck_buttonDiv {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    top: 4px;
+    left: 40px;
+}
+
+.my_deck_button{
+    width: 100%;
+    height: 30px;
+    border-radius: 20%;
+    background-color: #f6d577;
 }

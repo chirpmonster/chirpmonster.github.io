@@ -27,11 +27,14 @@ var Vue1 = new Vue({
             "img/touxiang6.png",
             "img/touxiang5.png",
             "img/touxiang7.png"],
-        profession: "萨满",
+        profession: "萨满", //显示的职业
         isShadow: false,
-        bigimg: {src: "", num: 0},
-        timer: "",
-        current: "",
+        bigimg: {src: "", num: 0}, //改变大图地址
+        timer: "", //定时器
+        currentNum: "", //识别当前的点击的费用
+        currentTarget: "", //记录操作的div
+        isabled: false, //判断是否两次点击
+        isdeleting: false, //阻止点删除的时候冒泡
     },
     mounted: function () {
         this.chosen(0);
@@ -66,20 +69,56 @@ var Vue1 = new Vue({
         clicknums: function (event) {
             $(event.currentTarget).siblings().removeClass("opacity");
             //判断是否第二次点击
-            if (this.current === event.currentTarget) {
+            if (this.currentNum === event.currentTarget) {
                 $(event.currentTarget).removeClass("opacity");
-                this.current = "";
+                this.currentNum = "";
             } else {
                 $(event.currentTarget).addClass("opacity");
-                this.current = event.currentTarget;
+                this.currentNum = event.currentTarget;
             }
         },
         //点击某个卡组之后卡组置顶，出现卡组详情
-        clickmydeck: function (event) {
-            var that = event.currentTarget;
-            $(that).css("top", that.offsetTop - 68);
-            $(that).addClass("deckMove");
-            $(that).siblings().css("display", "none");
+        clickMy_deck: function (event) {
+            //判断是否连续点击
+            if (!this.isabled && !this.isdeleting) {
+                this.currentTarget = event.currentTarget;
+                //由于display之后位置会变，就先给一个位置，然后进行动画
+                $(this.currentTarget).css("top", this.currentTarget.offsetTop - 79);
+                $(this.currentTarget).addClass("deckMove");
+                $(this.currentTarget).siblings().css("display", "none");
+                //旋转切换
+                $(".my_deck_list").removeClass("my_deck_list_hide");
+                $(".my_deck_list").addClass("my_deck_list_show");
+                $(".my_deck_button").attr("value", "完成");
+                //放大的时候隐藏删除按键
+                $(".delete_deck").css("display","none");
+                this.isabled = true;
+            }
+            this.isdeleting = false;
+        },
+        //点击返回按钮
+        clickButton: function () {
+            if ($(".my_deck_button").attr("value") === "返回")
+                alert("主页制作中！");
+            if ($(".my_deck_button").attr("value") === "完成") {
+                //重置this.isabled
+                this.isabled = false;
+                //旋转回来
+                $(".my_deck_list").removeClass("my_deck_list_show")
+                $(".my_deck_list").addClass("my_deck_list_hide");
+                //恢复正常
+                $(this.currentTarget).siblings().css("display", "block");
+                $(this.currentTarget).removeClass("deckMove");
+                $(this.currentTarget).css("top", 0);
+                //显示删除按键
+                $(".delete_deck").css("display","inline");
+                $(".my_deck_button").attr("value", "返回");
+            }
+        },
+        //删卡组,使用阻止冒泡失败，原因不明，采用修改参数达到阻止冒泡的效果
+        deletedeck: function (num) {
+                this.decks.splice(num, 1);
+                this.isdeleting = true;
         }
     }
 });

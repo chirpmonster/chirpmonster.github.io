@@ -39,15 +39,25 @@
         </div>
         <div class="my_deck">
             <div class="my_deck_title">我的套牌</div>
-            <a href="#">
-                <div class="my_deck_name" v-for="item in decks" :style="{backgroundImage:'url(' + item + ')'}" @click="clickmydeck(event)">
+            <div class="my_deck_content">
+                <div class="my_deck_name" v-for="(item,num) in decks" :style="{backgroundImage:'url(' + item + ')'}"
+                     @click="clickMy_deck(event)">
                     <div class="my_deck_words">卡组</div>
+                    <div class="delete_deck" @click="deletedeck(num)">x</div>
                 </div>
-            </a>
+            </div>
+            <div class="my_deck_footer">
+                <div class="my_deck_list">
+                    <div>卡牌0/30</div>
+                    <div>套牌{{decks.length}}/18</div>
+                </div>
+                <div class="my_deck_buttonDiv" @click="clickButton">
+                    <input type="button" class="my_deck_button" value="返回">
+                </div>
+            </div>
         </div>
     </div>
 </div>
->
 </body>
 <script src="js/main.js"></script>
 </html>
