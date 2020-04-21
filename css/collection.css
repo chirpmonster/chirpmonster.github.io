@@ -100,6 +100,16 @@
     }
 }
 
+@keyframes deckMove {
+    5%{
+        transform: scale(1.1);
+    }
+    100%{
+        top:-43px;
+        transform: scale(1.1);
+    }
+
+}
 body {
     font-family: Arial;
     padding: 0;
@@ -424,4 +434,7 @@ li {
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px black;
+}
+.deckMove {
+    animation: deckMove 300ms forwards linear;
 }

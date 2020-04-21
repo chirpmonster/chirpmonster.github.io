@@ -1,4 +1,4 @@
-var a=0;
+var a = 0;
 var Vue1 = new Vue({
     el: '#everything',
     data: {
@@ -76,18 +76,10 @@ var Vue1 = new Vue({
         },
         //点击某个卡组之后卡组置顶，出现卡组详情
         clickmydeck: function (event) {
-            var that=event.currentTarget;
+            var that = event.currentTarget;
             $(that).css("top", that.offsetTop - 68);
+            $(that).addClass("deckMove");
             $(that).siblings().css("display", "none");
-            this.timer=setInterval(function () {
-                $(that).css("top", that.offsetTop - 68-a);
-                a+=10;
-                console.log(that.offsetTop - 68-a);
-                if (that.offsetTop - 68-a<-10){
-                    clearInterval(this.timer)
-                }
-            },500);
-
         }
     }
 });
