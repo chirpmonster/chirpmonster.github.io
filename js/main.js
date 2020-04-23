@@ -1,6 +1,5 @@
-var a = 0;
-var Vue1 = new Vue({
-    el: '#everything',
+let Vue1 = new Vue({
+    el: '#collection',
     data: {
         profession_img: [{src: "img/zhiye1.png", isChosen: false, profession: "萨满"},
             {src: "img/zhiye2.png", isChosen: false, profession: "战士"},
@@ -49,20 +48,34 @@ var Vue1 = new Vue({
         },
         //图片变大与模糊
         cardMove: function (num) {
+            //移除先前操作的class，用于解决z-index错位问题
+            this.card_img[this.bigimg.num].class = "";
+            //给bigimg一个src
             this.bigimg.src = this.card_img[num].src;
+            //保存当前bigimg的序号
             this.bigimg.num = num;
+            //添加带有移动动画的class
             this.card_img[num].class = "cardMove" + num;
+            //添加遮罩层，通过:class="{shadow:isShadow}"实现
             this.isShadow = true;
-            //避免大图的模糊效果
+            //显示bigimg
             this.timer = setTimeout(function () {
+                //解决窗口模式下的错位问题
+                let top=$(".absimg").eq(num).offset().top;
+                let left=$(".absimg").eq(num).offset().left;
+                $(".bigimg").css("top",top);
+                $(".bigimg").css("left",left);
                 $(".bigimg").fadeIn(100);
-            }, 200)
+            }, 300);
         },
         //点掉大图，通过遮罩层实现点击事件，通过:class实现动画切换
         hidebigimg: function () {
             this.isShadow = false;
+            //添加带有隐藏的动画的class
             this.card_img[this.bigimg.num].class = "hideCard" + this.bigimg.num;
+            //中止出现动画，防止连续点击出现bug
             clearTimeout(this.timer);
+            //隐藏bigimg
             $(".bigimg").stop().css("display", "none");
         },
         //选择法力消耗
@@ -91,7 +104,7 @@ var Vue1 = new Vue({
                 $(".my_deck_list").addClass("my_deck_list_show");
                 $(".my_deck_button").attr("value", "完成");
                 //放大的时候隐藏删除按键
-                $(".delete_deck").css("display","none");
+                $(".delete_deck").css("display", "none");
                 this.isabled = true;
             }
             this.isdeleting = false;
@@ -111,14 +124,14 @@ var Vue1 = new Vue({
                 $(this.currentTarget).removeClass("deckMove");
                 $(this.currentTarget).css("top", 0);
                 //显示删除按键
-                $(".delete_deck").css("display","inline");
+                $(".delete_deck").css("display", "inline");
                 $(".my_deck_button").attr("value", "返回");
             }
         },
         //删卡组,使用阻止冒泡失败，原因不明，采用修改参数达到阻止冒泡的效果
         deletedeck: function (num) {
-                this.decks.splice(num, 1);
-                this.isdeleting = true;
+            this.decks.splice(num, 1);
+            this.isdeleting = true;
         }
     }
 });
