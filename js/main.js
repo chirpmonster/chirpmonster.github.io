@@ -1,6 +1,7 @@
 let Vue1 = new Vue({
     el: '#collection',
     data: {
+        loading:true,
         profession_img: [{src: "img/zhiye1.png", isChosen: false, profession: "萨满"},
             {src: "img/zhiye2.png", isChosen: false, profession: "战士"},
             {src: "img/zhiye3.png", isChosen: false, profession: "法师"},
@@ -28,7 +29,7 @@ let Vue1 = new Vue({
             "img/touxiang7.png"],
         profession: "萨满", //显示的职业
         isShadow: false,
-        bigimg: {src: "", num: 0}, //改变大图地址
+        bigimg: {src: "img/loading.gif", num: 0}, //改变大图地址
         timer: "", //定时器
         currentNum: "", //识别当前的点击的费用
         currentTarget: "", //记录操作的div
@@ -38,6 +39,7 @@ let Vue1 = new Vue({
     mounted: function () {
         //初始化显示的职业
         this.chosen(0);
+        this.loading=false;
     },
     methods: {
         //选择职业，通过:class实现

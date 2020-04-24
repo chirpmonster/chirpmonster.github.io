@@ -134,14 +134,24 @@ br {
 li {
     list-style: none;
 }
-.bigimg {
+.bigimgDiv{
     position: absolute;
-    width: 340px;
-    z-index: 999;
-
-    display: none;
 }
 
+.bigimg {
+    position: relative;
+    width: 340px;
+    z-index: 999;
+    top: 50px;
+    left: 40vw;
+}
+.bigimgDiv div{
+    position: relative;
+    z-index: 999;
+    top: 50px;
+    left: 20vw;
+    font-size: 30px;
+}
 .main {
     margin: 0 auto;
     width: 1000px;
@@ -186,13 +196,11 @@ li {
     border-bottom: 0;
     border-radius: 30%;
     overflow: hidden;
-    opacity: 0.8;
     filter:alpha(opacity=80);
 }
 
 .career li:hover {
-    opacity: 1;
-    filter:alpha(opacity=100);
+    filter: brightness(110%);
 }
 
 .chosen {
@@ -469,6 +477,7 @@ li {
     position: relative;
     display: inline-block;
     width: 30%;
+    top:4px;
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px black;
