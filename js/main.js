@@ -36,6 +36,7 @@ let Vue1 = new Vue({
         isdeleting: false, //阻止点删除的时候冒泡
     },
     mounted: function () {
+        //初始化显示的职业
         this.chosen(0);
     },
     methods: {
@@ -128,7 +129,7 @@ let Vue1 = new Vue({
                 $(".my_deck_button").attr("value", "返回");
             }
         },
-        //删卡组,使用阻止冒泡失败，原因不明，采用修改参数达到阻止冒泡的效果
+        //删卡组,采用修改参数达到阻止冒泡的效果(使用阻止冒泡失败，原因不明，有待研究)
         deletedeck: function (num) {
             this.decks.splice(num, 1);
             this.isdeleting = true;
