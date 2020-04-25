@@ -153,6 +153,7 @@ li {
     font-size: 30px;
 }
 .main {
+    display: none;
     margin: 0 auto;
     width: 1000px;
     height: 800px;

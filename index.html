@@ -12,15 +12,15 @@
     <script src="frame/vue.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/collection.css">
 </head>
-<body>
+<body onload="load()">
 <div id="collection">
     <audio src="audio/tricksofthetrade.mp3" autoplay="autoplay" loop="loop"></audio>
     <div class="bigimgDiv">
-        <img :src="bigimg.src" alt="" class="bigimg" v-show="loading">
-        <div v-if="loading">loading...(github服务器在国外，加载会很慢~科学上网从我做起！)</div>
+        <div>loading...(github服务器在国外，加载会很慢~科学上网从我做起！)</div>
+        <img :src="bigimg.src" alt="" class="bigimg">
     </div>
     <div :class="{mask:isShadow}" @click="hidebigimg"></div>
-    <div class="main" :class="{shadow:isShadow}" v-if="!loading">
+    <div class="main" :class="{shadow:isShadow}">
         <div class="all_cards">
             <ul class="career">
                 <li v-for="(item,num) in profession_img" :class="{chosen:item.isChosen}">
