@@ -16,7 +16,7 @@
 <div id="collection">
     <audio src="audio/tricksofthetrade.mp3" autoplay="autoplay" loop="loop"></audio>
     <div class="bigimgDiv">
-        <div>loading...(github服务器在国外，加载会很慢~科学上网从我做起！)</div>
+        <div onclick="load()">loading...(github服务器在国外，加载会很慢~科学上网从我做起！)点击此处跳过</div>
         <img :src="bigimg.src" alt="" class="bigimg">
     </div>
     <div :class="{mask:isShadow}" @click="hidebigimg"></div>

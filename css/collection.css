@@ -152,6 +152,9 @@ li {
     left: 20vw;
     font-size: 30px;
 }
+.bigimgDiv div:hover{
+    cursor: pointer;
+}
 .main {
     display: none;
     margin: 0 auto;
