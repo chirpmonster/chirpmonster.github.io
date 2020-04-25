@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>收藏</title>
+    <script src="frame/bootstrap/js/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="frame/bootstrap/css/bootstrap/3.3.6/bootstrap.min.css">
+    <script src="frame/bootstrap/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script src="frame/vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/collection.css">
+</head>
+<body onload="load()">
+<audio src="audio/tricksofthetrade.mp3" autoplay="autoplay" loop="loop"></audio>
+<div id="collection">
+    <div class="bigimgDiv">
+        <div onclick="load()">loading...(github服务器在国外，加载会很慢~科学上网从我做起！)点击此处跳过</div>
+        <img :src="bigimg.src" alt="" class="bigimg">
+    </div>
+    <div :class="{mask:isShadow}" @click="hidebigimg"></div>
+    <div class="main" :class="{shadow:isShadow}">
+        <div class="all_cards">
+            <ul class="career">
+                <li v-for="(item,num) in profession_img" :class="{chosen:item.isChosen}">
+                    <a href="#"><img :src="item.src" alt="" @click="chosen(num)"></a>
+                </li>
+            </ul>
+            <div class="cardpool">
+                <div class="profession">{{profession}}</div>
+                <div class="page">1</div>
+                <ul class="cards">
+                    <li class="card" v-for="(item,num) in card_img">
+                        <img :src="item.src" alt="">
+                        <img class="absimg" :src="item.src" alt="" @click="cardMove(num)" :class="item.class">
+                    </li>
+                </ul>
+                <div class="search">
+                    <div class="hexagon" v-for="num in nums" @click="clicknums(event)">{{num}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="my_deck">
+            <div class="my_deck_title">我的套牌</div>
+            <div class="my_deck_content">
+                <div class="my_deck_name" v-for="(item,num) in decks" :style="{backgroundImage:'url(' + item + ')'}"
+                     @click="clickMy_deck(event)">
+                    <div class="my_deck_words">卡组</div>
+                    <div class="delete_deck" @click="deletedeck(num)">x</div>
+                </div>
+            </div>
+            <div class="my_deck_footer">
+                <div class="my_deck_list">
+                    <div>卡牌0/30</div>
+                    <div>套牌{{decks.length}}/18</div>
+                </div>
+                <div class="my_deck_buttonDiv" @click="clickButton">
+                    <input type="button" class="my_deck_button" value="返回">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/main.js"></script>
+</html>

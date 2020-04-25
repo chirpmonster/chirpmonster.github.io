@@ -3,7 +3,7 @@ function load(){
     $(".bigimgDiv img").fadeOut();
     $(".main").fadeIn(1000);
 }
-let Vue1 = new Vue({
+let collection = new Vue({
     el: '#collection',
     data: {
         profession_img: [{src: "img/zhiye1.png", isChosen: false, profession: "萨满"},
@@ -118,7 +118,7 @@ let Vue1 = new Vue({
         //点击返回按钮
         clickButton: function () {
             if ($(".my_deck_button").attr("value") === "返回")
-                alert("主页制作中！");
+                window.location.assign("index.html")
             if ($(".my_deck_button").attr("value") === "完成") {
                 //重置this.isabled
                 this.isabled = false;
@@ -138,6 +138,26 @@ let Vue1 = new Vue({
         deletedeck: function (num) {
             this.decks.splice(num, 1);
             this.isdeleting = true;
+        }
+    }
+});
+let index=new Vue({
+    el:'#index',
+    data:{
+
+    },
+    methods:{
+        pvp:function () {
+            alert("对战模式制作中");
+        },
+        pve:function () {
+            alert("冒险模式制作中");
+        },
+        happy:function () {
+            alert("乱斗模式制作中");
+        },
+        others:function () {
+            alert("其他模式制作中");
         }
     }
 });
