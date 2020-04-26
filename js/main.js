@@ -1,8 +1,9 @@
-function load(){
+function load() {
     $(".bigimgDiv div").fadeOut();
     $(".bigimgDiv img").fadeOut();
     $(".main").fadeIn(1000);
 }
+
 let collection = new Vue({
     el: '#collection',
     data: {
@@ -67,10 +68,10 @@ let collection = new Vue({
             //显示bigimg
             this.timer = setTimeout(function () {
                 //解决窗口模式下的错位问题
-                let top=$(".absimg").eq(num).offset().top;
-                let left=$(".absimg").eq(num).offset().left;
-                $(".bigimg").css("top",top);
-                $(".bigimg").css("left",left);
+                let top = $(".absimg").eq(num).offset().top;
+                let left = $(".absimg").eq(num).offset().left;
+                $(".bigimg").css("top", top);
+                $(".bigimg").css("left", left);
                 $(".bigimg").fadeIn(100);
             }, 300);
         },
@@ -118,9 +119,10 @@ let collection = new Vue({
         //点击返回按钮
         clickButton: function () {
             if ($(".my_deck_button").attr("value") === "返回")
-                window.location.assign("index.html")
+                window.location.assign("index.html");
             if ($(".my_deck_button").attr("value") === "完成") {
                 //重置this.isabled
+                $(".clickAudio").attr("src", "audio/Back_Click.mp3");
                 this.isabled = false;
                 //旋转回来
                 $(".my_deck_list").removeClass("my_deck_list_show")
@@ -136,28 +138,40 @@ let collection = new Vue({
         },
         //删卡组,采用修改参数达到阻止冒泡的效果(使用阻止冒泡失败，原因不明，有待研究)
         deletedeck: function (num) {
-            this.decks.splice(num, 1);
+            if (confirm("确认删除卡组？"))
+                this.decks.splice(num, 1);
             this.isdeleting = true;
         }
     }
 });
-let index=new Vue({
-    el:'#index',
-    data:{
-
+let index = new Vue({
+    el: '#index',
+    data: {
+        packNum: 99,
+        friendsNum:0
     },
-    methods:{
-        pvp:function () {
+    methods: {
+        pvp: function () {
             alert("对战模式制作中");
         },
-        pve:function () {
+        pve: function () {
             alert("冒险模式制作中");
         },
-        happy:function () {
+        happy: function () {
             alert("乱斗模式制作中");
         },
-        others:function () {
+        others: function () {
             alert("其他模式制作中");
+        },
+        hover: function () {
+            $(".hoverAudio").attr("src", "audio/box_large_button.mp3");
+        },
+        pack: function () {
+            if (this.packNum > 0)
+                this.packNum--;
+        },
+        friends:function () {
+            this.friendsNum++;
         }
     }
 });

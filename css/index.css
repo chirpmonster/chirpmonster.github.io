@@ -200,3 +200,68 @@ li {
     opacity: 0.2;
     filter: alpha(opacity=20);
 }
+.packNum{
+    position: relative;
+    height: 23px;
+    width: 31px;
+    left: 520px;
+    top: 424px;
+    border-radius: 7px;
+    background-color: #88252f;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    line-height: 18px;
+    border: #8f7944 solid 3px;
+}
+.task{
+    position: relative;
+    height: 88px;
+    width: 88px;
+    left: 325px;
+    top: 352px;
+    border-radius: 50%;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background-color: white;
+    cursor: pointer;
+}
+.task:hover{
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+.shop{
+    position: relative;
+    height: 110px;
+    width: 110px;
+    left: 190px;
+    top: 260px;
+    border-radius: 50%;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background-color: white;
+    cursor: pointer;
+}
+.shop:hover{
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+.friends{
+    position: relative;
+    height: 22px;
+    width: 47px;
+    left: 7px;
+    top: 263px;
+    border-radius: 7px;
+    background-color: #1b1816;
+    cursor: pointer;
+    font-size: 20px;
+    color: #807973;
+    text-align: center;
+    font-weight: bold;
+    line-height: 24px;
+}
+.friends:hover{
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}

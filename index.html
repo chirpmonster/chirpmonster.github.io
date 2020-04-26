@@ -14,13 +14,18 @@
 </head>
 <body>
 <audio src="audio/playingwithafulldeck.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src="" class="hoverAudio" autoplay="autoplay"></audio>
 <div class="main" id="index">
-    <a href="#" @click="pvp">对战模式</a>
-    <a href="#" @click="pve">冒险模式</a>
-    <a href="#" @click="happy">乱斗模式</a>
-    <a href="#" @click="others">其他模式</a>
-    <a href="collection.html" class="myCollection"></a>
-    <a href="#" class="pack"></a>
+    <a href="#" @click="pvp" @mouseover="hover">对战模式</a>
+    <a href="#" @click="pve" @mouseover="hover">冒险模式</a>
+    <a href="#" @click="happy" @mouseover="hover">乱斗模式</a>
+    <a href="#" @click="others" @mouseover="hover">其他模式</a>
+    <a href="collection.html" class="myCollection" @mouseover="hover"></a>
+    <a href="#" class="pack" @mouseover="hover" @click="pack"></a>
+    <div class="packNum">{{packNum}}</div>
+    <div class="task" @mouseover="hover"></div>
+    <a href="#" class="shop" @mouseover="hover"></a>
+    <div class="friends" @mouseover="hover" @click="friends">{{friendsNum}}</div>
 </div>
 </body>
 <script src="js/main.js"></script>
