@@ -16,7 +16,7 @@ let collection = new Vue({
             {src: "img/zhiye7.png", isChosen: false, profession: "猎人"},
             {src: "img/zhiye8.png", isChosen: false, profession: "术士"},
             {src: "img/zhiye9.png", isChosen: false, profession: "潜行者"},],
-        card_img: [{src: "img/card1.png", class: false, profession: "萨满"},
+        card_img: [{src: "img/card1.png", class: "", profession: "萨满"},
             {src: "img/card2.png", class: "", profession: "战士"},
             {src: "img/card3.png", class: "", profession: "法师"},
             {src: "img/card4.png", class: "", profession: "德鲁伊"},
@@ -32,12 +32,12 @@ let collection = new Vue({
             "img/touxiang6.png",
             "img/touxiang5.png",
             "img/touxiang7.png"],
-        profession: "萨满", //显示的职业
+        profession: '萨满', //显示的职业
         isShadow: false,
         bigimg: {src: "img/loading.gif", num: 0}, //改变大图地址
-        timer: "", //定时器
-        currentNum: "", //识别当前的点击的费用
-        currentTarget: "", //记录操作的div
+        timer: '', //定时器
+        currentNum: '', //识别当前的点击的费用
+        currentTarget: '', //记录操作的div
         isabled: false, //判断是否两次点击
         isdeleting: false, //阻止点删除的时候冒泡
     },
@@ -56,13 +56,13 @@ let collection = new Vue({
         //图片变大与模糊
         cardMove: function (num) {
             //移除先前操作的class，用于解决z-index错位问题
-            this.card_img[this.bigimg.num].class = "";
+            this.card_img[this.bigimg.num].class = '';
             //给bigimg一个src
             this.bigimg.src = this.card_img[num].src;
             //保存当前bigimg的序号
             this.bigimg.num = num;
             //添加带有移动动画的class
-            this.card_img[num].class = "cardMove" + num;
+            this.card_img[num].class = 'cardMove' + num;
             //添加遮罩层，通过:class="{shadow:isShadow}"实现
             this.isShadow = true;
             //显示bigimg
@@ -79,7 +79,7 @@ let collection = new Vue({
         hidebigimg: function () {
             this.isShadow = false;
             //添加带有隐藏的动画的class
-            this.card_img[this.bigimg.num].class = "hideCard" + this.bigimg.num;
+            this.card_img[this.bigimg.num].class = 'hideCard' + this.bigimg.num;
             //中止出现动画，防止连续点击出现bug
             clearTimeout(this.timer);
             //隐藏bigimg
@@ -109,7 +109,7 @@ let collection = new Vue({
                 //旋转切换
                 $(".my_deck_list").removeClass("my_deck_list_hide");
                 $(".my_deck_list").addClass("my_deck_list_show");
-                $(".my_deck_button").attr("value", "完成");
+                $(".my_deck_button").attr("value", '完成');
                 //放大的时候隐藏删除按键
                 $(".delete_deck").css("display", "none");
                 this.isabled = true;
@@ -118,9 +118,9 @@ let collection = new Vue({
         },
         //点击返回按钮
         clickButton: function () {
-            if ($(".my_deck_button").attr("value") === "返回")
+            if ($(".my_deck_button").attr("value") === '返回')
                 window.location.assign("index.html");
-            if ($(".my_deck_button").attr("value") === "完成") {
+            if ($(".my_deck_button").attr("value") === '完成') {
                 //重置this.isabled
                 $(".clickAudio").attr("src", "audio/Back_Click.mp3");
                 this.isabled = false;
@@ -133,7 +133,7 @@ let collection = new Vue({
                 $(this.currentTarget).css("top", 0);
                 //显示删除按键
                 $(".delete_deck").css("display", "inline");
-                $(".my_deck_button").attr("value", "返回");
+                $(".my_deck_button").attr("value", '返回');
             }
         },
         //删卡组,采用修改参数达到阻止冒泡的效果(使用阻止冒泡失败，原因不明，有待研究)
@@ -147,10 +147,22 @@ let collection = new Vue({
 let index = new Vue({
     el: '#index',
     data: {
+        mask: false,
         packNum: 99,
-        friendsNum:0
+        friendsNum: 0,
+        name: '名字#111',
+        nearby: 0,
+        online: 0,
+        friendsList: false,
+        gold: 1000,
+        settingClass: ''
     },
     methods: {
+        clickScreen: function () {
+            this.friendsList = false;
+            this.settingClass = 'hideSetting';
+            this.mask = false;
+        },
         pvp: function () {
             alert("对战模式制作中");
         },
@@ -170,8 +182,22 @@ let index = new Vue({
             if (this.packNum > 0)
                 this.packNum--;
         },
-        friends:function () {
-            this.friendsNum++;
+        toggleFriends: function () {
+            this.friendsList = !this.friendsList;
+            this.mask = true;
+        },
+        toggleSetting: function () {
+            //切换状态
+            console.log(this.settingClass);
+            if(this.settingClass === 'showSetting')
+                this.settingClass ='hideSetting';
+            else
+                this.settingClass ='showSetting';
+            this.mask = true;
+            console.log(this.settingClass);
+        },
+        close: function () {
+            window.close();
         }
     }
 });
