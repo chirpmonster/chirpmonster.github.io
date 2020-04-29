@@ -157,7 +157,22 @@ let index = new Vue({
         gold: 1000,
         settingClass: ''
     },
+    mounted: function () {
+        let _this = this;
+        document.onkeydown = function (e) {
+            let key = window.event.keyCode;
+            if (key === 27)
+                _this.keydown_esc();
+        }
+    },
     methods: {
+        //监听esc事件
+        keydown_esc: function () {
+            if (this.friendsList)
+                this.friendsList = !this.friendsList;
+            else
+                this.toggleSetting();
+        },
         clickScreen: function () {
             this.friendsList = false;
             if (this.settingClass != '')
@@ -198,6 +213,8 @@ let index = new Vue({
             console.log(this.settingClass);
         },
         close: function () {
+            //window.close()的兼容性处理
+            window.open('','_self','');
             window.close();
         }
     }
