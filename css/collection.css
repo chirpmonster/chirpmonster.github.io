@@ -137,6 +137,7 @@ li {
 
 .bigimgDiv {
     position: absolute;
+    width: 100%;
 }
 
 .bigimg {
@@ -149,10 +150,10 @@ li {
 
 .bigimgDiv div {
     position: relative;
+    width:100%;
     z-index: 999;
-    top: 50px;
-    left: 20vw;
-    font-size: 30px;
+    top: 300px;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -333,9 +334,9 @@ li {
 }
 
 .hideCard5 {
-    animation: hideCard5 0.3s forwards;
-    z-index: 1;
-}
+     animation: hideCard5 0.3s forwards;
+     z-index: 1;
+ }
 
 .hideCard6 {
     animation: hideCard6 0.3s forwards;

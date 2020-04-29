@@ -160,7 +160,8 @@ let index = new Vue({
     methods: {
         clickScreen: function () {
             this.friendsList = false;
-            this.settingClass = 'hideSetting';
+            if (this.settingClass != '')
+                this.settingClass = 'hideSetting';
             this.mask = false;
         },
         pvp: function () {
@@ -189,10 +190,10 @@ let index = new Vue({
         toggleSetting: function () {
             //切换状态
             console.log(this.settingClass);
-            if(this.settingClass === 'showSetting')
-                this.settingClass ='hideSetting';
+            if (this.settingClass === 'showSetting')
+                this.settingClass = 'hideSetting';
             else
-                this.settingClass ='showSetting';
+                this.settingClass = 'showSetting';
             this.mask = true;
             console.log(this.settingClass);
         },
