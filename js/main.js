@@ -1,45 +1,45 @@
 function load() {
-    $(".bigimgDiv div").fadeOut();
-    $(".bigimgDiv img").fadeOut();
-    $(".main").fadeIn(1000);
+    $('.bigimgDiv div').fadeOut();
+    $('.bigimgDiv img').fadeOut();
+    $('.main').fadeIn(1000);
 }
 
 let collection = new Vue({
     el: '#collection',
     data: {
-        profession_img: [{src: "img/zhiye1.png", isChosen: false, profession: "萨满"},
-            {src: "img/zhiye2.png", isChosen: false, profession: "战士"},
-            {src: "img/zhiye3.png", isChosen: false, profession: "法师"},
-            {src: "img/zhiye4.png", isChosen: false, profession: "德鲁伊"},
-            {src: "img/zhiye5.png", isChosen: false, profession: "牧师"},
-            {src: "img/zhiye6.png", isChosen: false, profession: "圣骑士"},
-            {src: "img/zhiye7.png", isChosen: false, profession: "猎人"},
-            {src: "img/zhiye8.png", isChosen: false, profession: "术士"},
-            {src: "img/zhiye9.png", isChosen: false, profession: "潜行者"},],
-        card_img: [{src: "img/card1.png", class: "", profession: "萨满"},
-            {src: "img/card2.png", class: "", profession: "战士"},
-            {src: "img/card3.png", class: "", profession: "法师"},
-            {src: "img/card4.png", class: "", profession: "德鲁伊"},
-            {src: "img/card5.png", class: "", profession: "牧师"},
-            {src: "img/card6.png", class: "", profession: "圣骑士"},
-            {src: "img/card7.png", class: "", profession: "猎人"},
-            {src: "img/card8.png", class: "", profession: "术士"},],
-        nums: ["0", "1", "2", "3", "4", "5", "6", "7+"],
-        decks: ["img/touxiang1.png",
-            "img/touxiang2.png",
-            "img/touxiang3.png",
-            "img/touxiang4.png",
-            "img/touxiang6.png",
-            "img/touxiang5.png",
-            "img/touxiang7.png"],
+        profession_img: [{src: 'img/zhiye1.png', isChosen: false, profession: '萨满'},
+            {src: 'img/zhiye2.png', isChosen: false, profession: '战士'},
+            {src: 'img/zhiye3.png', isChosen: false, profession: '法师'},
+            {src: 'img/zhiye4.png', isChosen: false, profession: '德鲁伊'},
+            {src: 'img/zhiye5.png', isChosen: false, profession: '牧师'},
+            {src: 'img/zhiye6.png', isChosen: false, profession: '圣骑士'},
+            {src: 'img/zhiye7.png', isChosen: false, profession: '猎人'},
+            {src: 'img/zhiye8.png', isChosen: false, profession: '术士'},
+            {src: 'img/zhiye9.png', isChosen: false, profession: '潜行者'},],
+        card_img: [{src: 'img/card1.png', class: '', profession: '萨满'},
+            {src: 'img/card2.png', class: '', profession: '战士'},
+            {src: 'img/card3.png', class: '', profession: '法师'},
+            {src: 'img/card4.png', class: '', profession: '德鲁伊'},
+            {src: 'img/card5.png', class: '', profession: '牧师'},
+            {src: 'img/card6.png', class: '', profession: '圣骑士'},
+            {src: 'img/card7.png', class: '', profession: '猎人'},
+            {src: 'img/card8.png', class: '', profession: '术士'},],
+        nums: ['0', '1', '2', '3', '4', '5', '6', '7+'],
+        decks: ['img/touxiang1.png',
+            'img/touxiang2.png',
+            'img/touxiang3.png',
+            'img/touxiang4.png',
+            'img/touxiang6.png',
+            'img/touxiang5.png',
+            'img/touxiang7.png'],
         profession: '萨满', //显示的职业
         isShadow: false,
-        bigimg: {src: "img/loading.gif", num: 0}, //改变大图地址
+        bigimg: {src: 'img/loading.gif', num: 0}, //改变大图地址
         timer: '', //定时器
         currentNum: '', //识别当前的点击的费用
         currentTarget: '', //记录操作的div
         isabled: false, //判断是否两次点击
-        isdeleting: false, //阻止点删除的时候冒泡
+        // isdeleting: false, //阻止点删除的时候冒泡(解决)
     },
     mounted: function () {
         //初始化显示的职业
@@ -63,16 +63,16 @@ let collection = new Vue({
             this.bigimg.num = num;
             //添加带有移动动画的class
             this.card_img[num].class = 'cardMove' + num;
-            //添加遮罩层，通过:class="{shadow:isShadow}"实现
+            //添加遮罩层，通过:class='{shadow:isShadow}'实现
             this.isShadow = true;
             //显示bigimg
             this.timer = setTimeout(function () {
                 //解决窗口模式下的错位问题
-                let top = $(".absimg").eq(num).offset().top;
-                let left = $(".absimg").eq(num).offset().left;
-                $(".bigimg").css("top", top);
-                $(".bigimg").css("left", left);
-                $(".bigimg").fadeIn(100);
+                let top = $('.absimg').eq(num).offset().top;
+                let left = $('.absimg').eq(num).offset().left;
+                $('.bigimg').css('top', top);
+                $('.bigimg').css('left', left);
+                $('.bigimg').fadeIn(100);
             }, 300);
         },
         //点掉大图，通过遮罩层实现点击事件，通过:class实现动画切换
@@ -83,64 +83,64 @@ let collection = new Vue({
             //中止出现动画，防止连续点击出现bug
             clearTimeout(this.timer);
             //隐藏bigimg
-            $(".bigimg").stop().css("display", "none");
+            $('.bigimg').stop().css('display', 'none');
         },
         //选择法力消耗
         clicknums: function (event) {
-            $(event.currentTarget).siblings().removeClass("opacity");
+            $(event.currentTarget).siblings().removeClass('opacity');
             //判断是否第二次点击
             if (this.currentNum === event.currentTarget) {
-                $(event.currentTarget).removeClass("opacity");
-                this.currentNum = "";
+                $(event.currentTarget).removeClass('opacity');
+                this.currentNum = '';
             } else {
-                $(event.currentTarget).addClass("opacity");
+                $(event.currentTarget).addClass('opacity');
                 this.currentNum = event.currentTarget;
             }
         },
         //点击某个卡组之后卡组置顶，出现卡组详情
         clickMy_deck: function (event) {
             //判断是否连续点击
-            if (!this.isabled && !this.isdeleting) {
+            if (!this.isabled) {
                 this.currentTarget = event.currentTarget;
                 //由于display之后位置会变，就先给一个位置，然后进行动画
-                $(this.currentTarget).css("top", this.currentTarget.offsetTop - 79);
-                $(this.currentTarget).addClass("deckMove");
-                $(this.currentTarget).siblings().css("display", "none");
+                $(this.currentTarget).css('top', this.currentTarget.offsetTop - 79);
+                $(this.currentTarget).addClass('deckMove');
+                $(this.currentTarget).siblings().css('display', 'none');
                 //旋转切换
-                $(".my_deck_list").removeClass("my_deck_list_hide");
-                $(".my_deck_list").addClass("my_deck_list_show");
-                $(".my_deck_button").attr("value", '完成');
+                $('.my_deck_list').removeClass('my_deck_list_hide');
+                $('.my_deck_list').addClass('my_deck_list_show');
+                $('.my_deck_button').attr('value', '完成');
                 //放大的时候隐藏删除按键
-                $(".delete_deck").css("display", "none");
+                $('.delete_deck').css('display', 'none');
                 this.isabled = true;
             }
-            this.isdeleting = false;
+            // this.isdeleting = false;
         },
         //点击返回按钮
         clickButton: function () {
-            if ($(".my_deck_button").attr("value") === '返回')
-                window.location.assign("index.html");
-            if ($(".my_deck_button").attr("value") === '完成') {
+            if ($('.my_deck_button').attr('value') === '返回')
+                window.location.assign('index.html');
+            if ($('.my_deck_button').attr('value') === '完成') {
                 //重置this.isabled
-                $(".clickAudio").attr("src", "audio/Back_Click.mp3");
+                $('.clickAudio').attr('src', 'audio/Back_Click.mp3');
                 this.isabled = false;
                 //旋转回来
-                $(".my_deck_list").removeClass("my_deck_list_show")
-                $(".my_deck_list").addClass("my_deck_list_hide");
+                $('.my_deck_list').removeClass('my_deck_list_show')
+                $('.my_deck_list').addClass('my_deck_list_hide');
                 //恢复正常
-                $(this.currentTarget).siblings().css("display", "block");
-                $(this.currentTarget).removeClass("deckMove");
-                $(this.currentTarget).css("top", 0);
+                $(this.currentTarget).siblings().css('display', 'block');
+                $(this.currentTarget).removeClass('deckMove');
+                $(this.currentTarget).css('top', 0);
                 //显示删除按键
-                $(".delete_deck").css("display", "inline");
-                $(".my_deck_button").attr("value", '返回');
+                $('.delete_deck').css('display', 'inline');
+                $('.my_deck_button').attr('value', '返回');
             }
         },
-        //删卡组,采用修改参数达到阻止冒泡的效果(使用阻止冒泡失败，原因不明，有待研究)
+        //删卡组,采用修改参数达到阻止冒泡的效果(使用阻止冒泡失败，原因不明，有待研究)（已解决冒泡问题）
         deletedeck: function (num) {
-            if (confirm("确认删除卡组？"))
+            if (confirm('确认删除卡组？'))
                 this.decks.splice(num, 1);
-            this.isdeleting = true;
+            // this.isdeleting = true;
         }
     }
 });
@@ -174,25 +174,27 @@ let index = new Vue({
                 this.toggleSetting();
         },
         clickScreen: function () {
+            //关闭好友列表
             this.friendsList = false;
-            if (this.settingClass != '')
+            //如果
+            if (this.settingClass === 'showSetting')
                 this.settingClass = 'hideSetting';
             this.mask = false;
         },
         pvp: function () {
-            alert("对战模式制作中");
+            alert('对战模式制作中');
         },
         pve: function () {
-            alert("冒险模式制作中");
+            alert('冒险模式制作中');
         },
         happy: function () {
-            alert("乱斗模式制作中");
+            alert('乱斗模式制作中');
         },
         others: function () {
-            alert("其他模式制作中");
+            alert('其他模式制作中');
         },
         hover: function () {
-            $(".hoverAudio").attr("src", "audio/box_large_button.mp3");
+            $('.hoverAudio').attr('src', 'audio/box_large_button.mp3');
         },
         pack: function () {
             if (this.packNum > 0)
