@@ -1,3 +1,5 @@
+<h2>2020.5.1</h2>
+1.使用.self修饰符解决之前的冒泡问题
 <h2>2020.4.29</h2>
 1.优化loading界面
 <br>
@@ -23,7 +25,7 @@
 <br>
 问题1：如何除了一个div之外全部模糊？我查阅了一些资料，都没有能解决这个问题，于是我把那个不模糊的div拿到的最外面..算是变相解决了
 <br>
-问题2：阻止冒泡（vue中的.stop方法，return false，e.stopPropagation()都尝试过了，无效，原因未知），最后添加了一个变量isdeleting来阻止父元素的click事件
+问题2：阻止冒泡（vue中的.stop修饰符，return false，e.stopPropagation()都尝试过了，无效，原因未知），最后添加了一个变量isdeleting来阻止父元素的click事件-->已解决，使用.self修饰符
 <br>
 未来完善项目的打算：
 <br>
