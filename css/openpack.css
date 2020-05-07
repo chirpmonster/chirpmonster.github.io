@@ -1,0 +1,172 @@
+body {
+    font-family: Arial;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #2aabd2;
+}
+
+a {
+    color: black;
+    display: block;
+}
+
+br {
+    font-size: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.openPack {
+    position: relative;
+    margin: 0 auto;
+    background: url("../img/openpack.png") no-repeat;
+    background-size: 100%;
+    width: 1330px;
+    height: 750px;
+}
+.friends {
+    position: absolute;
+    height: 22px;
+    width: 47px;
+    left: 7px;
+    top: 720px;
+    z-index: 2;
+}
+
+.friendsNum {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    color: #807973;
+    text-align: center;
+    font-weight: bold;
+    line-height: 24px;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: #1b1816;
+}
+
+.friends:hover .friendsNum {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.friendsList {
+    position: relative;
+    height: 470px;
+    width: 250px;
+    top: -520px;
+    left: -5px;
+    background-color: #242424;
+    border-radius: 6px;
+    border: #726e6b solid 7px;
+}
+
+.friendsList_title {
+    margin: 2px;
+    width: 98%;
+    height: 50px;
+    background-color: #3e3e3e;
+    border: #726e6b solid 2px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    color: #467d89;
+    font-weight: bold;
+}
+
+.friendsList_content {
+    margin: 2px;
+    padding-left: 6px;
+    width: 98%;
+    height: 20px;
+    border: #726e6b solid 2px;
+    border-radius: 5px;
+    color: #a9a8a6;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.gold {
+    position: absolute;
+    height: 16px;
+    width: 85px;
+    left: 1151px;
+    top: 724px;
+    background-color: #37342e;
+    border-radius: 5px;
+}
+
+.gold div {
+    color: white;
+    float: right;
+    margin: 0 5px;
+    font-size: 17px;
+    line-height: 17px;
+    font-weight: bold;
+}
+
+.setting {
+    position: absolute;
+    height: 22px;
+    width: 35px;
+    left: 1282px;
+    top: 720px;
+    border-radius: 10px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background-color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.setting:hover {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+.settingList {
+    position: relative;
+    width: 240px;
+    height: 160px;
+    left: 545px;
+    top: 230px;
+    background-color: #5e4a32;
+    border-radius: 10px;
+    border: #675f5c solid 10px;
+    z-index: 2;
+    transform: scale(0);
+}
+
+.settingList div {
+    height: 20%;
+    width: 55%;
+    margin: 30px auto;
+    background-color: #f3d6c5;
+    text-align: center;
+    border: #fcdd7b solid 4px;
+    border-radius: 3px;
+    font-size: 18px;
+    line-height: 20px;
+    color: #9a8066;
+    cursor: pointer;
+}
+
+.settingList div:hover {
+    filter: brightness(120%);
+}
+
+.showSetting {
+    animation: showSetting 0.2s linear forwards;
+}
+.hideSetting {
+    animation: hideSetting 0.1s linear forwards;
+}

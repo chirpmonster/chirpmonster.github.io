@@ -55,6 +55,7 @@ li {
 }
 
 .main {
+    position: relative;
     margin: 0 auto;
     background: url("../img/index.png") no-repeat;
     background-size: 100%;
@@ -71,7 +72,7 @@ li {
 }
 
 .main a:first-of-type {
-    position: relative;
+    position: absolute;
     top: 218px;
     left: 588px;
     width: 156px;
@@ -107,8 +108,8 @@ li {
 }
 
 .main a:nth-of-type(2) {
-    position: relative;
-    top: 250px;
+    position: absolute;
+    top: 270px;
     left: 555px;
     width: 220px;
     height: 21px;
@@ -127,28 +128,28 @@ li {
     width: 0;
     height: 0;
     border-right: 8px solid;
-    border-top: 24px solid;
+    border-top: 21px solid;
     border-color: transparent #b89c90 #b89c90 transparent;
 }
 
 .main a:nth-of-type(2)::after {
     content: "";
     position: relative;
-    left: 77px;
+    left: 78px;
     top: 4px;
     font-size: 0;
     width: 0;
     height: 0;
     border-left: 8px solid;
-    border-top: 24px solid;
+    border-top: 21px solid;
     border-color: transparent transparent #b89c90 #b89c90;
 }
 
 .main a:nth-of-type(3) {
-    position: relative;
-    top: 284px;
-    left: 555px;
-    width: 216px;
+    position: absolute;
+    top: 325px;
+    left: 553px;
+    width: 220px;
     height: 20px;
     background-color: #b89c90;
     text-align: center;
@@ -159,12 +160,12 @@ li {
 .main a:nth-of-type(3)::before {
     content: "";
     position: relative;
-    left: -75px;
+    left: -78px;
     top: 3px;
     font-size: 0;
     width: 0;
     height: 0;
-    border-left: 10px solid;
+    border-left: 6px solid;
     border-top: 20px solid;
     border-color: #b89c90 #b89c90 transparent transparent;
 }
@@ -172,19 +173,19 @@ li {
 .main a:nth-of-type(3)::after {
     content: "";
     position: relative;
-    left: 76px;
+    left: 78px;
     top: 3px;
     font-size: 0;
     width: 0;
     height: 0;
-    border-right: 10px solid;
+    border-right: 6px solid;
     border-top: 20px solid;
     border-color: #b89c90 transparent transparent #b89c90;
 }
 
 .main a:nth-of-type(4) {
-    position: relative;
-    top: 320px;
+    position: absolute;
+    top: 380px;
     left: 588px;
     width: 153px;
     height: 20px;
@@ -219,11 +220,11 @@ li {
 }
 
 .myCollection {
-    position: relative;
+    position: absolute;
     height: 77px;
     width: 222px;
     left: 616px;
-    top: 508px;
+    top: 590px;
     background-color: white;
     opacity: 0;
     filter: alpha(opacity=0);
@@ -236,11 +237,11 @@ li {
 }
 
 .pack {
-    position: relative;
+    position: absolute;
     height: 78px;
     width: 104px;
     left: 485px;
-    top: 432px;
+    top: 591px;
     border-radius: 10px;
     background-color: white;
     opacity: 0;
@@ -253,11 +254,11 @@ li {
 }
 
 .packNum {
-    position: relative;
+    position: absolute;
     height: 23px;
     width: 31px;
     left: 520px;
-    top: 424px;
+    top: 660px;
     border-radius: 7px;
     background-color: #88252f;
     color: white;
@@ -268,47 +269,39 @@ li {
 }
 
 .task {
-    position: relative;
-    height: 88px;
-    width: 88px;
-    left: 325px;
-    top: 352px;
+    position: absolute;
+    height: 76px;
+    width: 76px;
+    left: 333px;
+    top: 615px;
     border-radius: 50%;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    background-color: white;
     cursor: pointer;
 }
 
 .task:hover {
-    opacity: 0.2;
-    filter: alpha(opacity=20);
+    box-shadow: 0px 0px 50px 6px white;
 }
 
 .shop {
-    position: relative;
+    position: absolute;
     height: 110px;
     width: 110px;
     left: 190px;
-    top: 260px;
+    top: 606px;
     border-radius: 50%;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    background-color: white;
     cursor: pointer;
 }
 
 .shop:hover {
-    opacity: 0.2;
-    filter: alpha(opacity=20);
+    box-shadow: 0px 0px 7px 5px white;
 }
 
 .friends {
-    position: relative;
+    position: absolute;
     height: 22px;
     width: 47px;
     left: 7px;
-    top: 263px;
+    top: 720px;
     z-index: 2;
 }
 
@@ -368,11 +361,11 @@ li {
 }
 
 .gold {
-    position: relative;
+    position: absolute;
     height: 16px;
     width: 85px;
     left: 1151px;
-    top: 245px;
+    top: 724px;
     background-color: #37342e;
     border-radius: 5px;
 }
@@ -387,11 +380,11 @@ li {
 }
 
 .setting {
-    position: relative;
+    position: absolute;
     height: 22px;
     width: 35px;
     left: 1282px;
-    top: 225px;
+    top: 720px;
     border-radius: 10px;
     opacity: 0;
     filter: alpha(opacity=0);
@@ -410,7 +403,7 @@ li {
     width: 240px;
     height: 160px;
     left: 545px;
-    top: -310px;
+    top: 230px;
     background-color: #5e4a32;
     border-radius: 10px;
     border: #675f5c solid 10px;

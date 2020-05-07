@@ -14,7 +14,8 @@
 </head>
 <body onload="load()">
 <audio src="" class="clickAudio" autoplay="autoplay"></audio>
-<audio src="audio/tricksofthetrade.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src="audio/playingwithafulldeck.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src="" class="hoverAudio" autoplay="autoplay"></audio>
 <div id="collection">
     <div class="bigimgDiv">
         <div onclick="load()">github服务器在国外，加载会很慢~点击此处跳过</div>
@@ -46,9 +47,9 @@
             <div class="my_deck_title">我的套牌</div>
             <div class="my_deck_content">
                 <div class="my_deck_name" v-for="(item,num) in decks" :style="{backgroundImage:'url(' + item + ')'}"
-                     @click.self="clickMy_deck($event)">
+                     @click="clickMy_deck($event)">
                     <div class="my_deck_words">卡组</div>
-                    <div class="delete_deck" @click="deletedeck(num)">x</div>
+                    <div class="delete_deck" @click.stop="deletedeck(num)">x</div>
                 </div>
             </div>
             <div class="my_deck_footer">

@@ -158,6 +158,7 @@ let index = new Vue({
         settingClass: ''
     },
     mounted: function () {
+        //监听esc
         let _this = this;
         document.onkeydown = function (e) {
             let key = window.event.keyCode;
@@ -166,12 +167,18 @@ let index = new Vue({
         }
     },
     methods: {
-        //监听esc事件
+        //esc事件
         keydown_esc: function () {
             if (this.friendsList)
                 this.friendsList = !this.friendsList;
             else
                 this.toggleSetting();
+        },
+        hover: function () {
+            $('.toggleAudio').attr('src', 'audio/box_large_button.mp3');
+        },
+        clickAudio:function(){
+            $('.toggleAudio').attr('src', 'audio/box_hub_button.mp3');
         },
         clickScreen: function () {
             //关闭好友列表
@@ -182,23 +189,26 @@ let index = new Vue({
             this.mask = false;
         },
         pvp: function () {
-            alert('对战模式制作中');
+
         },
         pve: function () {
-            alert('冒险模式制作中');
+
         },
         happy: function () {
-            alert('乱斗模式制作中');
+
         },
         others: function () {
-            alert('其他模式制作中');
+
         },
-        hover: function () {
-            $('.hoverAudio').attr('src', 'audio/box_large_button.mp3');
+        collection:function(){
+            setTimeout(function () {
+                window.location.href='collection.html';
+            },800);
         },
         pack: function () {
-            if (this.packNum > 0)
-                this.packNum--;
+            setTimeout(function () {
+                window.location.href='openpack.html';
+            },800);
         },
         toggleFriends: function () {
             this.friendsList = !this.friendsList;
