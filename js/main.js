@@ -119,10 +119,13 @@ let collection = new Vue({
         //点击返回按钮
         clickButton: function () {
             if ($('.my_deck_button').attr('value') === '返回')
-                window.location.assign('index.html');
+                $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
+                setTimeout(function () {
+                    window.location.assign('index.html');
+                }, 800);
             if ($('.my_deck_button').attr('value') === '完成') {
                 //重置this.isabled
-                $('.clickAudio').attr('src', 'audio/Back_Click.mp3');
+                $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
                 this.isabled = false;
                 //旋转回来
                 $('.my_deck_list').removeClass('my_deck_list_show')
@@ -174,10 +177,13 @@ let index = new Vue({
             else
                 this.toggleSetting();
         },
+        //使用Vue失败
         hover: function () {
+            // this.audio_src='audio/box_large_button.mp3';
             $('.toggleAudio').attr('src', 'audio/box_large_button.mp3');
         },
-        clickAudio:function(){
+        clickAudio: function () {
+            // this.audio_src='audio/box_hub_button.mp3';
             $('.toggleAudio').attr('src', 'audio/box_hub_button.mp3');
         },
         clickScreen: function () {
@@ -200,15 +206,15 @@ let index = new Vue({
         others: function () {
 
         },
-        collection:function(){
+        collection: function () {
             setTimeout(function () {
-                window.location.href='collection.html';
-            },800);
+                window.location.assign('collection.html');
+            }, 800);
         },
         pack: function () {
             setTimeout(function () {
-                window.location.href='openpack.html';
-            },800);
+                window.location.assign('openpack.html');
+            }, 800);
         },
         toggleFriends: function () {
             this.friendsList = !this.friendsList;
@@ -216,18 +222,88 @@ let index = new Vue({
         },
         toggleSetting: function () {
             //切换状态
-            console.log(this.settingClass);
+            // console.log(this.settingClass);
             if (this.settingClass === 'showSetting')
                 this.settingClass = 'hideSetting';
             else
                 this.settingClass = 'showSetting';
             this.mask = true;
-            console.log(this.settingClass);
+            // console.log(this.settingClass);
         },
         close: function () {
-            //window.close()的兼容性处理
-            window.open('','_self','');
+            // window.close()的兼容性处理,但是使用后会出现另一个页面也能调用close方法，所以暂时取消
+            // window.open('', '_self', '');
             window.close();
+        }
+    }
+});
+let openpack = new Vue({
+    el: '#openPack',
+    data: {
+        mask: false,
+        friendsNum: 0,
+        name: '名字#111',
+        nearby: 0,
+        online: 0,
+        friendsList: false,
+        gold: 1000,
+        settingClass: ''
+    },
+    mounted: function () {
+        //监听esc
+        let _this = this;
+        document.onkeydown = function (e) {
+            let key = window.event.keyCode;
+            if (key === 27)
+                _this.keydown_esc();
+        }
+    },
+    methods: {
+        //esc事件
+        keydown_esc: function () {
+            if (this.friendsList)
+                this.friendsList = !this.friendsList;
+            else
+                this.toggleSetting();
+        },
+        hover: function () {
+            // this.audio_src='audio/box_large_button.mp3';
+            $('.toggleAudio').attr('src', 'audio/box_large_button.mp3');
+        },
+        clickAudio: function () {
+            // this.audio_src='audio/box_hub_button.mp3';
+            $('.toggleAudio').attr('src', 'audio/box_hub_button.mp3');
+        },
+        clickScreen: function () {
+            //关闭好友列表
+            this.friendsList = false;
+            //如果
+            if (this.settingClass === 'showSetting')
+                this.settingClass = 'hideSetting';
+            this.mask = false;
+        },
+        toggleFriends: function () {
+            this.friendsList = !this.friendsList;
+            this.mask = true;
+        },
+        toggleSetting: function () {
+            //切换状态
+            // console.log(this.settingClass);
+            if (this.settingClass === 'showSetting')
+                this.settingClass = 'hideSetting';
+            else
+                this.settingClass = 'showSetting';
+            this.mask = true;
+            // console.log(this.settingClass);
+        },
+        close: function () {
+            window.close();
+        },
+        back:function () {
+            $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
+            setTimeout(function () {
+                window.location.assign('index.html');
+            }, 800);
         }
     }
 });

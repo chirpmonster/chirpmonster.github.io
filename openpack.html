@@ -11,13 +11,16 @@
     <script src="frame/bootstrap/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <script src="frame/vue.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/openpack.css">
+    <link rel="stylesheet" type="text/css" href="css/public.css">
 </head>
 <body>
-<audio src="audio/playingwithafulldeck.mp3" autoplay="autoplay" loop="loop"></audio>
-<audio src="" class="hoverAudio" autoplay="autoplay"></audio>
-<div class="openPack">
+<audio src="audio/awashinalebutnaryamug.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src="" class="toggleAudio" autoplay="autoplay"></audio>
+<div class="openPack" id="openPack">
+    <div class="mask" @click="clickScreen" v-show="mask"></div>
+    <div class="back" @mouseenter="hover" @click="back"></div>
     <div class="friends">
-        <div class="friendsNum" @mouseover="hover" @click.stop="toggleFriends">{{friendsNum}}</div>
+        <div class="friendsNum" @mouseenter="hover" @click.stop="toggleFriends">{{friendsNum}}</div>
         <div class="friendsList" v-show="friendsList">
             <div class="friendsList_title">{{name}}</div>
             <div class="friendsList_content">附近的玩家 ({{nearby}})</div>
@@ -27,7 +30,7 @@
     <div class="gold">
         <div>{{gold}}</div>
     </div>
-    <div class="setting" @mouseover="hover" @click="toggleSetting"></div>
+    <div class="setting" @mouseenter="hover" @click="toggleSetting"></div>
     <div class="settingList" :class="settingClass">
         <div>选项</div>
         <div @click="close">退出</div>

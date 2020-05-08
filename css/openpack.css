@@ -1,3 +1,26 @@
+@keyframes showSetting {
+    0% {
+        transform: scale(0);
+    }
+    90% {
+        transform: scale(1.2);
+    }
+    95% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hideSetting {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
 body {
     font-family: Arial;
     padding: 0;
@@ -30,6 +53,26 @@ li {
     background-size: 100%;
     width: 1330px;
     height: 750px;
+}
+.mask {
+    position: absolute;
+    height: 750px;
+    width: 1330px;
+    z-index: 1;
+}
+.back{
+    position: absolute;
+    height: 30px;
+    width: 62px;
+    background-color: white;
+    opacity: 0;
+    left: 1068px;
+    top: 672px;
+    border-radius:10px;
+    cursor: pointer;
+}
+.back:hover{
+    opacity: 0.3;
 }
 .friends {
     position: absolute;
