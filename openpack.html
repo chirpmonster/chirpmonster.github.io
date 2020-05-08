@@ -16,7 +16,11 @@
 <body>
 <audio src="audio/awashinalebutnaryamug.mp3" autoplay="autoplay" loop="loop"></audio>
 <audio src="" class="toggleAudio" autoplay="autoplay"></audio>
-<div class="openPack" id="openPack">
+<div class="openPack" id="openPack" @mousemove="move">
+    <img class="pack" id="staticPack" src="img/pack.png" ondragstart="return false;">
+    <img class="pack" id="pack" :class="{drag:isDrag}" src="img/pack.png" ondragstart="return false;" @mousedown="start" @mouseup="stop">
+    <div class="packNum">{{packNum}}</div>
+    <video id="background_video" src="" loop="loop" autoplay="autoplay" muted="muted"></video>
     <div class="mask" @click="clickScreen" v-show="mask"></div>
     <div class="back" @mouseenter="hover" @click="back"></div>
     <div class="friends">
@@ -32,7 +36,7 @@
     </div>
     <div class="setting" @mouseenter="hover" @click="toggleSetting"></div>
     <div class="settingList" :class="settingClass">
-        <div>选项</div>
+        <div>作弊</div>
         <div @click="close">退出</div>
     </div>
 </div>

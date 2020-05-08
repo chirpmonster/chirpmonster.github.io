@@ -51,7 +51,7 @@ li {
     position: absolute;
     height: 750px;
     width: 1330px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .main {
@@ -302,7 +302,7 @@ li {
     width: 47px;
     left: 7px;
     top: 720px;
-    z-index: 2;
+    z-index: 11;
 }
 
 .friendsNum {
@@ -390,7 +390,7 @@ li {
     filter: alpha(opacity=0);
     background-color: white;
     cursor: pointer;
-    z-index: 2;
+    z-index: 11;
 }
 
 .setting:hover {
@@ -407,7 +407,7 @@ li {
     background-color: #5e4a32;
     border-radius: 10px;
     border: #675f5c solid 10px;
-    z-index: 2;
+    z-index: 11;
     transform: scale(0);
 }
 

@@ -120,9 +120,9 @@ let collection = new Vue({
         clickButton: function () {
             if ($('.my_deck_button').attr('value') === '返回')
                 $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
-                setTimeout(function () {
-                    window.location.assign('index.html');
-                }, 800);
+            setTimeout(function () {
+                window.location.assign('index.html');
+            }, 800);
             if ($('.my_deck_button').attr('value') === '完成') {
                 //重置this.isabled
                 $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
@@ -151,7 +151,7 @@ let index = new Vue({
     el: '#index',
     data: {
         mask: false,
-        packNum: 99,
+        packNum: 1,
         friendsNum: 0,
         name: '名字#111',
         nearby: 0,
@@ -216,6 +216,11 @@ let index = new Vue({
                 window.location.assign('openpack.html');
             }, 800);
         },
+        shop: function () {
+            if (this.packNum < 100) {
+                this.packNum = 99;
+            }
+        },
         toggleFriends: function () {
             this.friendsList = !this.friendsList;
             this.mask = true;
@@ -241,6 +246,11 @@ let openpack = new Vue({
     el: '#openPack',
     data: {
         mask: false,
+        packNum: 99,
+        //用来控制正在拖动的卡包的z-index
+        isDrag: false,
+        originMouseX: 0,
+        originMouseY: 0,
         friendsNum: 0,
         name: '名字#111',
         nearby: 0,
@@ -250,12 +260,16 @@ let openpack = new Vue({
         settingClass: ''
     },
     mounted: function () {
-        //监听esc
+        //监听esc,必须用_this
         let _this = this;
         document.onkeydown = function (e) {
             let key = window.event.keyCode;
             if (key === 27)
                 _this.keydown_esc();
+            if (key === 32 && _this.mask===false) {
+                _this.packNum--;
+                _this.openpack();
+            }
         }
     },
     methods: {
@@ -265,6 +279,35 @@ let openpack = new Vue({
                 this.friendsList = !this.friendsList;
             else
                 this.toggleSetting();
+        },
+        start: function (e) {
+            this.isDrag = true;
+            this.originMouseX = e.clientX;
+            this.originMouseY = e.clientY;
+            $('#background_video').attr('src', 'img/process.mp4');
+            this.packNum--;
+        },
+        move: function (e) {
+            if (this.isDrag) {
+                $('#pack').css('width', 220);
+                $('#pack').css('left', 175 + e.clientX - this.originMouseX);
+                $('#pack').css('top', 200 + e.clientY - this.originMouseY);
+            }
+        },
+        stop: function (e) {
+            this.isDrag = false;
+            $('#pack').css('width', 200);
+            $('#pack').css('left', 175);
+            $('#pack').css('top', 200);
+            $('#background_video').attr('src', '');
+            if (e.clientX > 740 && e.clientX < 950 && e.clientY > 230 && e.clientY < 400)
+                this.openpack();
+            else {
+                this.packNum++;
+            }
+        },
+        openpack: function () {
+            alert(3)
         },
         hover: function () {
             // this.audio_src='audio/box_large_button.mp3';
@@ -299,7 +342,7 @@ let openpack = new Vue({
         close: function () {
             window.close();
         },
-        back:function () {
+        back: function () {
             $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
             setTimeout(function () {
                 window.location.assign('index.html');

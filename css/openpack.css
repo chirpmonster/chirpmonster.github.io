@@ -21,6 +21,7 @@
         transform: scale(0);
     }
 }
+
 body {
     font-family: Arial;
     padding: 0;
@@ -54,13 +55,49 @@ li {
     width: 1330px;
     height: 750px;
 }
+
+.pack {
+    position: absolute;
+    width: 200px;
+    top: 200px;
+    left: 175px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.packNum {
+    position: absolute;
+    width: 32px;
+    height: 40px;
+    left: 290px;
+    top: 225px;
+    z-index: 2;
+    background-color: #5d63ac;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 41px;
+}
+
+#background_video {
+    width: 1330px;
+    position: absolute;
+    z-index: 1
+}
+
+.drag {
+    z-index: 3;
+}
+
 .mask {
     position: absolute;
     height: 750px;
     width: 1330px;
-    z-index: 1;
+    z-index: 10;
 }
-.back{
+
+.back {
     position: absolute;
     height: 30px;
     width: 62px;
@@ -68,19 +105,21 @@ li {
     opacity: 0;
     left: 1068px;
     top: 672px;
-    border-radius:10px;
+    border-radius: 10px;
     cursor: pointer;
 }
-.back:hover{
+
+.back:hover {
     opacity: 0.3;
 }
+
 .friends {
     position: absolute;
     height: 22px;
     width: 47px;
     left: 7px;
     top: 720px;
-    z-index: 2;
+    z-index: 11;
 }
 
 .friendsNum {
@@ -168,7 +207,7 @@ li {
     filter: alpha(opacity=0);
     background-color: white;
     cursor: pointer;
-    z-index: 2;
+    z-index: 11;
 }
 
 .setting:hover {
@@ -185,7 +224,7 @@ li {
     background-color: #5e4a32;
     border-radius: 10px;
     border: #675f5c solid 10px;
-    z-index: 2;
+    z-index: 11;
     transform: scale(0);
 }
 
@@ -210,6 +249,7 @@ li {
 .showSetting {
     animation: showSetting 0.2s linear forwards;
 }
+
 .hideSetting {
     animation: hideSetting 0.1s linear forwards;
 }

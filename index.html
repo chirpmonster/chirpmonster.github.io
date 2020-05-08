@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/public.css">
 </head>
 <body>
-<audio src="audio/pullupachair.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src="audio/tworoguesonemark.mp3" autoplay="autoplay" loop="loop"></audio>
 <audio src="" class="toggleAudio" autoplay="autoplay"></audio>
 <div class="main" id="index">
     <div class="mask" @click="clickScreen" v-show="mask"></div>
@@ -26,7 +26,7 @@
     <a href="#" @click="clickAudio();pack()" class="pack" @mouseenter="hover"></a>
     <div class="packNum">{{packNum}}</div>
     <div class="task" @mouseenter="hover"></div>
-    <a href="#" class="shop" @mouseenter="hover"></a>
+    <a href="#" @click="shop" class="shop" @mouseenter="hover"></a>
     <div class="friends">
         <div class="friendsNum" @mouseenter="hover" @click.stop="toggleFriends">{{friendsNum}}</div>
         <div class="friendsList" v-show="friendsList">
