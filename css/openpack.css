@@ -21,7 +21,36 @@
         transform: scale(0);
     }
 }
-
+@keyframes opening {
+    100%{
+        transform:scale(1.3) translate(-30px,-30px);
+    }
+}
+@keyframes cardbackMove1 {
+    100%{
+        transform: translate(0,-160px);
+    }
+}
+@keyframes cardbackMove2 {
+    100%{
+        transform: translate(-180px,-80px);
+    }
+}
+@keyframes cardbackMove3 {
+    100%{
+        transform: translate(180px,-80px);
+    }
+}
+@keyframes cardbackMove4 {
+    100%{
+        transform: translate(-100px,160px);
+    }
+}
+@keyframes cardbackMove5 {
+    100%{
+        transform: translate(100px,160px);
+    }
+}
 body {
     font-family: Arial;
     padding: 0;
@@ -54,6 +83,7 @@ li {
     background-size: 100%;
     width: 1330px;
     height: 750px;
+    transform-style:preserve-3d;
 }
 
 .pack {
@@ -64,7 +94,40 @@ li {
     cursor: pointer;
     z-index: 2;
 }
-
+.opening_pack{
+    position: absolute;
+    top: 215px;
+    left: 660px;
+    z-index: 11;
+    /*animation: opening 3200ms linear forwards;*/
+    transform:scale(1.3) translate(-30px,-30px);
+}
+.opening_pack #animatePack{
+    position: absolute;
+    width: 230px;
+    opacity: 0;
+}
+.opening_pack .cardback{
+    position: absolute;
+    width: 140px;
+    left: 35px;
+    top: 40px;
+}
+.opening_pack .cardback:first-child{
+    animation: cardbackMove1 200ms linear forwards;
+}
+.opening_pack .cardback:nth-child(2){
+    animation: cardbackMove2 200ms linear forwards;
+}
+.opening_pack .cardback:nth-child(3){
+    animation: cardbackMove3 200ms linear forwards;
+}
+.opening_pack .cardback:nth-child(4){
+    animation: cardbackMove4 200ms linear forwards;
+}
+.opening_pack .cardback:nth-child(5){
+    animation: cardbackMove5 200ms linear forwards;
+}
 .packNum {
     position: absolute;
     width: 32px;

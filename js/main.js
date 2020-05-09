@@ -257,7 +257,8 @@ let openpack = new Vue({
         online: 0,
         friendsList: false,
         gold: 1000,
-        settingClass: ''
+        settingClass: '',
+        opening:false
     },
     mounted: function () {
         //监听esc,必须用_this
@@ -307,7 +308,7 @@ let openpack = new Vue({
             }
         },
         openpack: function () {
-            alert(3)
+            this.mask=true;
         },
         hover: function () {
             // this.audio_src='audio/box_large_button.mp3';

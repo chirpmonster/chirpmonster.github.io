@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>开包</title>
+    <title>卡包</title>
     <script src="frame/bootstrap/js/jquery/2.0.0/jquery.min.js"></script>
     <link rel="stylesheet" href="frame/bootstrap/css/bootstrap/3.3.6/bootstrap.min.css">
     <script src="frame/bootstrap/js/bootstrap/3.3.6/bootstrap.min.js"></script>
@@ -19,6 +19,14 @@
 <div class="openPack" id="openPack" @mousemove="move">
     <img class="pack" id="staticPack" src="img/pack.png" ondragstart="return false;">
     <img class="pack" id="pack" :class="{drag:isDrag}" src="img/pack.png" ondragstart="return false;" @mousedown="start" @mouseup="stop">
+    <div class="opening_pack">
+        <img class="cardback" src="img/cardback.png" ondragstart="return false;">
+        <img class="cardback" src="img/cardback.png" ondragstart="return false;">
+        <img class="cardback" src="img/cardback.png" ondragstart="return false;">
+        <img class="cardback" src="img/cardback.png" ondragstart="return false;">
+        <img class="cardback" src="img/cardback.png" ondragstart="return false;">
+        <img id="animatePack" src="img/pack.png" ondragstart="return false;">
+    </div>
     <div class="packNum">{{packNum}}</div>
     <video id="background_video" src="" loop="loop" autoplay="autoplay" muted="muted"></video>
     <div class="mask" @click="clickScreen" v-show="mask"></div>
