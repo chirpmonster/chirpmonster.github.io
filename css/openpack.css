@@ -21,36 +21,153 @@
         transform: scale(0);
     }
 }
+
 @keyframes opening {
-    100%{
-        transform:scale(1.3) translate(-30px,-30px);
+    0% {
+        z-index: 12;
+        opacity: 1;
+        filter: alpha(opacity=1);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.3);
+    }
+    80% {
+        z-index: 12;
+        transform: scale(1.3);
+        opacity: 1;
+        filter: alpha(opacity=1);
     }
 }
+
 @keyframes cardbackMove1 {
-    100%{
-        transform: translate(0,-160px);
+    0% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    80% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, -160px);
     }
 }
+
 @keyframes cardbackMove2 {
-    100%{
-        transform: translate(-180px,-80px);
+    0% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    80% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-180px, -80px);
     }
 }
+
 @keyframes cardbackMove3 {
-    100%{
-        transform: translate(180px,-80px);
+    0% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    80% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(180px, -80px);
     }
 }
+
 @keyframes cardbackMove4 {
-    100%{
-        transform: translate(-100px,160px);
+    0% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    80% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100px, 160px);
     }
 }
+
 @keyframes cardbackMove5 {
-    100%{
-        transform: translate(100px,160px);
+    0% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    80% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100px, 160px);
     }
 }
+
+@keyframes cardopen1 {
+    0% {
+        width: 165px;
+        transform: translate(0, -160px);
+    }
+    100% {
+        width: 165px;
+        transform: translate(0, -160px) rotateY(180deg);
+    }
+}
+
+@keyframes cardopen2 {
+    0% {
+        width: 165px;
+        transform: translate(-180px, -80px);
+    }
+    100% {
+        width: 165px;
+        transform: translate(-180px, -80px) rotateY(180deg);
+    }
+}
+
+@keyframes cardopen3 {
+    0% {
+        width: 165px;
+        transform: translate(180px, -80px);;
+    }
+    100% {
+        width: 165px;
+        transform: translate(180px, -80px) rotateY(180deg);
+    }
+}
+
+@keyframes cardopen4 {
+    0% {
+        width: 165px;
+        transform: translate(-100px, 160px);
+    }
+    100% {
+        width: 165px;
+        transform: translate(-100px, 160px) rotateY(180deg);
+    }
+}
+
+@keyframes cardopen5 {
+    0% {
+        width: 165px;
+        transform: translate(100px, 160px);
+    }
+    100% {
+        width: 165px;
+        transform: translate(100px, 160px) rotateY(180deg);
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: translateX(200px);
+    }
+}
+
 body {
     font-family: Arial;
     padding: 0;
@@ -83,9 +200,16 @@ li {
     background-size: 100%;
     width: 1330px;
     height: 750px;
-    transform-style:preserve-3d;
 }
-
+.space{
+    position: absolute;
+    display: block;
+    left: 100px;
+    top: 100px;
+    color: white;
+    cursor: pointer;
+    z-index:999;
+}
 .pack {
     position: absolute;
     width: 200px;
@@ -94,40 +218,159 @@ li {
     cursor: pointer;
     z-index: 2;
 }
-.opening_pack{
+
+.opening_pack {
     position: absolute;
     top: 215px;
     left: 660px;
-    z-index: 11;
-    /*animation: opening 3200ms linear forwards;*/
-    transform:scale(1.3) translate(-30px,-30px);
 }
-.opening_pack #animatePack{
+
+.opening_pack .animatePack_animate {
+    animation: opening 1s linear backwards;
+    z-index: 11;
+}
+
+.opening_pack #animatePack {
     position: absolute;
     width: 230px;
     opacity: 0;
+    filter: alpha(opacity=0);
 }
-.opening_pack .cardback{
+
+.opening_pack .cardback {
     position: absolute;
-    width: 140px;
+    width: 150px;
     left: 35px;
     top: 40px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
 }
-.opening_pack .cardback:first-child{
-    animation: cardbackMove1 200ms linear forwards;
+
+/*属性选择器失败*/
+/*.opening_pack [class^="cardback_animate1"]:hover {*/
+/*    width: 165px;*/
+/*    filter: drop-shadow(0 0 30px yellow);*/
+/*    transition: all 150ms;*/
+/*}*/
+
+.opening_pack .cardback_animate1:hover {
+    width: 165px;
+    filter: drop-shadow(0 0 30px yellow);
+    transition: all 150ms;
 }
-.opening_pack .cardback:nth-child(2){
-    animation: cardbackMove2 200ms linear forwards;
+
+.opening_pack .cardback_animate2:hover {
+    width: 165px;
+    filter: drop-shadow(0 0 30px yellow);
+    transition: all 150ms;
 }
-.opening_pack .cardback:nth-child(3){
-    animation: cardbackMove3 200ms linear forwards;
+
+.opening_pack .cardback_animate3:hover {
+    width: 165px;
+    filter: drop-shadow(0 0 30px yellow);
+    transition: all 150ms;
 }
-.opening_pack .cardback:nth-child(4){
-    animation: cardbackMove4 200ms linear forwards;
+
+.opening_pack .cardback_animate4:hover {
+    width: 165px;
+    filter: drop-shadow(0 0 30px yellow);
+    transition: all 150ms;
 }
-.opening_pack .cardback:nth-child(5){
-    animation: cardbackMove5 200ms linear forwards;
+
+.opening_pack .cardback_animate5:hover {
+    width: 165px;
+    filter: drop-shadow(0 0 30px yellow);
+    transition: all 150ms;
 }
+
+.opening_pack .cardback_animate1 {
+    animation: cardbackMove1 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.opening_pack .cardback_animate2 {
+    animation: cardbackMove2 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.opening_pack .cardback_animate3 {
+    animation: cardbackMove3 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.opening_pack .cardback_animate4 {
+    animation: cardbackMove4 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.opening_pack .cardback_animate5 {
+    animation: cardbackMove5 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.rotate1 {
+    animation: cardopen1 1s linear forwards;
+    opacity: 1 !important;
+    filter: alpha(opacity=1) !important;
+    z-index: 11;
+}
+.rotate2 {
+    animation: cardopen2 1s linear forwards;
+    opacity: 1 !important;
+    filter: alpha(opacity=1) !important;
+    z-index: 11;
+}
+.rotate3 {
+    animation: cardopen3 1s linear forwards;
+    opacity: 1 !important;
+    filter: alpha(opacity=1) !important;
+    z-index: 11;
+}
+.rotate4 {
+    animation: cardopen4 1s linear forwards;
+    opacity: 1 !important;
+    filter: alpha(opacity=1) !important;
+    z-index: 11;
+}
+.rotate5 {
+    animation: cardopen5 1s linear forwards;
+    opacity: 1 !important;
+    filter: alpha(opacity=1) !important;
+    z-index: 11;
+}
+.packFinish {
+    position: absolute;
+    display: none;
+    width: 100px;
+    height: 40px;
+    top: 132px;
+    left: 68px;
+    background-color: #9acfea;
+    text-align: center;
+    font-size: 25px;
+    line-height: 31px;
+    border-radius: 15px;
+    border: #c7f9fd solid 5px;
+    z-index: 11;
+    cursor: pointer;
+}
+
 .packNum {
     position: absolute;
     width: 32px;
@@ -166,6 +409,7 @@ li {
     width: 62px;
     background-color: white;
     opacity: 0;
+    filter: alpha(opacity=0);
     left: 1068px;
     top: 672px;
     border-radius: 10px;
@@ -174,6 +418,7 @@ li {
 
 .back:hover {
     opacity: 0.3;
+    filter: alpha(opacity=0.3);
 }
 
 .friends {

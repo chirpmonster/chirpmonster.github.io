@@ -258,18 +258,22 @@ let openpack = new Vue({
         friendsList: false,
         gold: 1000,
         settingClass: '',
-        opening:false
+        opening: false,
+        isAnimate: [false, false, false, false, false, false],
+        isRotate: [null, false, false, false, false, false],
+        time: 0
     },
     mounted: function () {
-        //监听esc,必须用_this
+        //监听必须用_this
         let _this = this;
         document.onkeydown = function (e) {
             let key = window.event.keyCode;
+            //监听esc
             if (key === 27)
                 _this.keydown_esc();
-            if (key === 32 && _this.mask===false) {
-                _this.packNum--;
-                _this.openpack();
+            //监听space
+            if (key === 32) {
+                _this.keydown_space();
             }
         }
     },
@@ -280,6 +284,28 @@ let openpack = new Vue({
                 this.friendsList = !this.friendsList;
             else
                 this.toggleSetting();
+        },
+        keydown_space: function () {
+            //按键间隔
+            let oldtime = this.time;
+            this.time = new Date();
+            if (this.time - oldtime > 1000) {
+                //三个if操作，开包，开卡，关闭
+                if (!this.isAnimate[0]) {
+                    this.packNum--;
+                    this.openpack();
+                } else if (this.isRotate[1] === true && this.isRotate[2] === true && this.isRotate[3] === true && this.isRotate[4] === true && this.isRotate[5] === true) {
+                    this.closepack();
+                    oldtime = 0;
+                    this.time = 0;
+                } else {
+                    this.openCard(1);
+                    this.openCard(2);
+                    this.openCard(3);
+                    this.openCard(4);
+                    this.openCard(5);
+                }
+            }
         },
         start: function (e) {
             this.isDrag = true;
@@ -307,8 +333,27 @@ let openpack = new Vue({
                 this.packNum++;
             }
         },
+        //开包
         openpack: function () {
-            this.mask=true;
+            this.isAnimate = [true, true, true, true, true, true];
+            this.mask = true;
+        },
+        //完成按钮，重置属性
+        closepack: function () {
+            this.isAnimate = [false, false, false, false, false, false];
+            this.isRotate = [null, false, false, false, false, false];
+            this.mask = false;
+            $('.packFinish').fadeOut(200);
+        },
+        //翻转卡牌
+        openCard: function (num) {
+            //这一行代码花了一个多小时...没这句看起来像废话的话无法执行..怀疑是引用类型的问题？浅拷贝，也可能是v-bind在数组某一项变化的时候无法生效的原因
+            this.isAnimate = [this.isAnimate[0], this.isAnimate[1], this.isAnimate[2], this.isAnimate[3], this.isAnimate[4], this.isAnimate[5]];
+            this.isAnimate[num] = false;
+            this.isRotate[num] = true;
+            if (this.isRotate[1] === true && this.isRotate[2] === true && this.isRotate[3] === true && this.isRotate[4] === true && this.isRotate[5] === true)
+                //想用渐变效果，所以没用v-show
+                $('.packFinish').fadeIn(500);
         },
         hover: function () {
             // this.audio_src='audio/box_large_button.mp3';
@@ -324,7 +369,9 @@ let openpack = new Vue({
             //如果
             if (this.settingClass === 'showSetting')
                 this.settingClass = 'hideSetting';
-            this.mask = false;
+            //mask无法在开包时关闭
+            if (!this.isAnimate[0])
+                this.mask = false;
         },
         toggleFriends: function () {
             this.friendsList = !this.friendsList;
