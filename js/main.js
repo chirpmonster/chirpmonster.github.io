@@ -1,12 +1,5 @@
-let cardpool = [{
-    src: 'img/BT_002.png',
-    quality: 'white',
-    profession: '法师',
-    type: '法术',
-    cost: 2,
-    attack: null,
-    blood: null
-},
+let cardpool = [
+    {src: 'img/BT_002.png', quality: 'white', profession: '法师', type: '法术', cost: 2, attack: null, blood: null},
     {src: 'img/BT_003.png', quality: 'white', profession: '法师', type: '法术', cost: 3, attack: null, blood: null},
     {src: 'img/BT_004.png', quality: 'blue', profession: '萨满', type: '随从', cost: 3, attack: null, blood: null},
     {src: 'img/BT_006.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
@@ -160,11 +153,11 @@ for (let i in cardpool) {
     else if (cardpool[i].quality === 'white')
         whitepool.push(cardpool[i]);
 }
-console.log(goldpool);
-console.log(goldpool.length);
-console.log(purplepool);
-console.log(bluepool);
-console.log(whitepool);
+// console.log(goldpool);
+// console.log(goldpool.length);
+// console.log(purplepool);
+// console.log(bluepool);
+// console.log(whitepool);
 
 function load() {
     $('.bigimgDiv div').fadeOut();
@@ -223,6 +216,7 @@ let collection = new Vue({
         },
         //图片变大与模糊
         cardMove: function (num) {
+            $('.toggleAudio').attr('src', 'audio/Card_Transition_Out.mp3');
             //移除先前操作的class，用于解决z-index错位问题
             this.card_img[this.bigimg.num].class = '';
             //给bigimg一个src
@@ -245,6 +239,7 @@ let collection = new Vue({
         },
         //点掉大图，通过遮罩层实现点击事件，通过:class实现动画切换
         hidebigimg: function () {
+            $('.toggleAudio').attr('src', 'audio/Card_Transition_Out.mp3');
             this.isShadow = false;
             //添加带有隐藏的动画的class
             this.card_img[this.bigimg.num].class = 'hideCard' + this.bigimg.num;
@@ -269,6 +264,7 @@ let collection = new Vue({
         clickMy_deck: function (event) {
             //判断是否连续点击
             if (!this.isabled) {
+                $('.toggleAudio').attr('src', 'audio/Hub_Click.mp3');
                 this.currentTarget = event.currentTarget;
                 //由于display之后位置会变，就先给一个位置，然后进行动画
                 $(this.currentTarget).css('top', this.currentTarget.offsetTop - 79);
@@ -286,11 +282,12 @@ let collection = new Vue({
         },
         //点击返回按钮
         clickButton: function () {
-            if ($('.my_deck_button').attr('value') === '返回')
+            if ($('.my_deck_button').attr('value') === '返回') {
                 $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
-            setTimeout(function () {
-                window.location.assign('index.html');
-            }, 800);
+                setTimeout(function () {
+                    window.location.assign('index.html');
+                }, 800);
+            }
             if ($('.my_deck_button').attr('value') === '完成') {
                 //重置this.isabled
                 $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
@@ -340,6 +337,7 @@ let index = new Vue({
     methods: {
         //esc事件
         keydown_esc: function () {
+            alert(2);
             if (this.friendsList)
                 this.friendsList = !this.friendsList;
             else
@@ -432,7 +430,7 @@ let openpack = new Vue({
         //用于防止连点
         time: 0,
         //给个初始值，防止显示不出
-        card: [null, 'img/BT_006.png', 'img/BT_006.png', 'img/BT_006.png', 'img/BT_006.png', 'img/BT_006.png']
+        card: [null, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}]
     },
     mounted: function () {
         //监听必须用_this
@@ -512,22 +510,24 @@ let openpack = new Vue({
             this.mask = true;
             //随机程序
             this.randomCard();
+            // console.log(this.card[1].quality);
         },
+        //随机卡
         randomCard: function () {
             for (let i = 1; i <= 5; i++) {
                 let randomNum1 = Math.random();
                 if (randomNum1 <= goldprobability) {
                     let randomNum2 = Math.random() * goldpool.length;
-                    this.card[i] = goldpool[Math.floor(randomNum2)].src;
+                    this.card[i] = goldpool[Math.floor(randomNum2)];
                 } else if (randomNum1 > goldprobability && randomNum1 <= goldprobability + purpleprobability) {
                     let randomNum2 = Math.random() * purplepool.length;
-                    this.card[i] = purplepool[Math.floor(randomNum2)].src;
+                    this.card[i] = purplepool[Math.floor(randomNum2)];
                 } else if (randomNum1 > goldprobability + purpleprobability && randomNum1 <= goldprobability + purpleprobability + blueprobability) {
                     let randomNum2 = Math.random() * bluepool.length;
-                    this.card[i] = bluepool[Math.floor(randomNum2)].src;
+                    this.card[i] = bluepool[Math.floor(randomNum2)];
                 } else {
                     let randomNum2 = Math.random() * whitepool.length;
-                    this.card[i] = whitepool[Math.floor(randomNum2)].src;
+                    this.card[i] = whitepool[Math.floor(randomNum2)];
                 }
             }
         },
@@ -540,6 +540,13 @@ let openpack = new Vue({
         },
         //翻转卡牌
         openCard: function (num) {
+            this.queueAudio('audio/card_turn_over_norm.mp3');
+            if (this.card[num].quality === 'gold')
+                this.queueAudio('audio/gold.mp3');
+            if (this.card[num].quality === 'purple')
+                this.queueAudio('audio/purple.mp3');
+            if (this.card[num].quality === 'blue')
+                this.queueAudio('audio/blue.mp3');
             //这一行代码花了一个多小时...没这句看起来像废话的话无法执行..怀疑是引用类型的问题？浅拷贝解决，也可能是v-bind在数组某一项变化的时候无法生效的原因
             //两行的原因是不移除上一个动画开始不了下一个动画
             this.isAnimate = [this.isAnimate[0], this.isAnimate[1], this.isAnimate[2], this.isAnimate[3], this.isAnimate[4], this.isAnimate[5]];
@@ -549,13 +556,25 @@ let openpack = new Vue({
                 //想用渐变效果，所以没用v-show
                 $('.packFinish').fadeIn(500);
         },
+        //音效队列，防止连续开多张卡的时候音效相互覆盖
+        queueAudio: function (src) {
+            for (let i = 1; i <= 10; i++) {
+                let $queue = $('.queue' + i);
+                if ($queue.attr('src') === '') {
+                    $queue.attr('src', src);
+                    break;
+                }
+            }
+        },
         hover: function () {
             // this.audio_src='audio/box_large_button.mp3';
-            $('.toggleAudio').attr('src', 'audio/box_large_button.mp3');
+            this.queueAudio('audio/box_large_button.mp3');
+            // $('.toggleAudio').attr('src', 'audio/box_large_button.mp3');
         },
         clickAudio: function () {
             // this.audio_src='audio/box_hub_button.mp3';
-            $('.toggleAudio').attr('src', 'audio/box_hub_button.mp3');
+            this.queueAudio('audio/box_hub_button.mp3');
+            // $('.toggleAudio').attr('src', 'audio/box_hub_button.mp3');
         },
         clickScreen: function () {
             //关闭好友列表
@@ -581,17 +600,21 @@ let openpack = new Vue({
             this.mask = true;
             // console.log(this.settingClass);
         },
-        zuobi:function(){
-            goldprobability=0.01?0.7:0.01;
+        zuobi: function () {
+            goldprobability = 0.01 ? 0.7 : 0.01;
         },
         close: function () {
             window.close();
         },
         back: function () {
-            $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
+            this.queueAudio('audio/Back_Click.mp3');
+            // $('.toggleAudio').attr('src', 'audio/Back_Click.mp3');
             setTimeout(function () {
                 window.location.assign('index.html');
             }, 800);
+        },
+        clear:function (event) {
+            $(event.currentTarget).context.src='';
         }
     }
 });

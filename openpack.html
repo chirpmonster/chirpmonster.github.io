@@ -14,9 +14,19 @@
     <link rel="stylesheet" type="text/css" href="css/public.css">
 </head>
 <body>
-<audio src="audio/awashinalebutnaryamug.mp3" autoplay="autoplay" loop="loop"></audio>
-<audio src="" class="toggleAudio" autoplay="autoplay"></audio>
 <div class="openPack" id="openPack" @mousemove="move">
+    <audio src="audio/awashinalebutnaryamug.mp3" autoplay="autoplay" loop="loop"></audio>
+    <audio src="" class="toggleAudio" autoplay="autoplay"></audio>
+    <audio src="" class="queue1" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue2" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue3" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue4" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue5" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue6" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue7" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue8" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue9" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue10" autoplay="autoplay" @ended="clear"></audio>
     <div class="space" @click="keydown_space">这是空格键(假装手机适配)</div>
     <img alt="" class="pack" id="staticPack" src="img/pack.png" ondragstart="return false;">
     <img alt="" class="pack" id="pack" :class="{drag:isDrag}" src="img/pack.png" ondragstart="return false;"
@@ -24,32 +34,32 @@
     <div class="opening_pack" v-show="isAnimate[0]">
         <img alt="" id="animatePack" :class="{animatePack_animate:isAnimate[0]}" src="img/pack.png"
              ondragstart="return false;">
-        <div class="cardback" :class="{cardback_animate1:isAnimate[1]}">
-            <img alt="" class="cardback_front" :src="card[1]" ondragstart="return false;"
+        <div class="cardback" :class="[{cardback_animate1:isAnimate[1]},card[1].quality]">
+            <img alt="" class="cardback_front" :src="card[1].src" ondragstart="return false;"
                  :class="{rotateback1:isRotate[1]}">
             <img alt="" class="cardback_back" src="img/cardback.png" @click="openCard(1)" ondragstart="return false;"
                  :class="{rotate1:isRotate[1]}">
         </div>
-        <div class="cardback" :class="{cardback_animate2:isAnimate[2]}">
-            <img alt="" class="cardback_front" :src="card[2]" ondragstart="return false;"
+        <div class="cardback" :class="[{cardback_animate2:isAnimate[2]},card[2].quality]">
+            <img alt="" class="cardback_front" :src="card[2].src" ondragstart="return false;"
                  :class="{rotateback2:isRotate[2]}">
             <img alt="" class="cardback_back" src="img/cardback.png" @click="openCard(2)" ondragstart="return false;"
                  :class="{rotate2:isRotate[2]}">
         </div>
-        <div class="cardback" :class="{cardback_animate3:isAnimate[3]}">
-            <img alt="" class="cardback_front" :src="card[3]" ondragstart="return false;"
+        <div class="cardback" :class="[{cardback_animate3:isAnimate[3]},card[3].quality]">
+            <img alt="" class="cardback_front" :src="card[3].src" ondragstart="return false;"
                  :class="{rotateback3:isRotate[3]}">
             <img alt="" class="cardback_back" src="img/cardback.png" @click="openCard(3)" ondragstart="return false;"
                  :class="{rotate3:isRotate[3]}">
         </div>
-        <div class="cardback" :class="{cardback_animate4:isAnimate[4]}">
-            <img alt="" class="cardback_front" :src="card[4]" ondragstart="return false;"
+        <div class="cardback" :class="[{cardback_animate4:isAnimate[4]},card[4].quality]">
+            <img alt="" class="cardback_front" :src="card[4].src" ondragstart="return false;"
                  :class="{rotateback4:isRotate[4]}">
             <img alt="" class="cardback_back" src="img/cardback.png" @click="openCard(4)" ondragstart="return false;"
                  :class="{rotate4:isRotate[4]}">
         </div>
-        <div class="cardback" :class="{cardback_animate5:isAnimate[5]}">
-            <img alt="" class="cardback_front" :src="card[5]" ondragstart="return false;"
+        <div class="cardback" :class="[{cardback_animate5:isAnimate[5]},card[5].quality]">
+            <img alt="" class="cardback_front" :src="card[5].src" ondragstart="return false;"
                  :class="{rotateback5:isRotate[5]}">
             <img alt="" class="cardback_back" src="img/cardback.png" @click="openCard(5)" ondragstart="return false;"
                  :class="{rotate5:isRotate[5]}">

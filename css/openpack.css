@@ -269,11 +269,12 @@ li {
 .space {
     position: absolute;
     display: block;
-    left: 100px;
-    top: 100px;
+    left: 400px;
+    top: 50px;
     color: white;
     cursor: pointer;
     z-index: 999;
+    font-size: 30px;
 }
 
 .pack {
@@ -363,35 +364,49 @@ li {
     transition: all 1000ms;
 }
 
-.opening_pack .cardback_animate1:hover {
+.opening_pack .gold:hover {
     width: 165px;
     filter: drop-shadow(0 0 30px yellow);
-    transition: all 150ms;
+    transition: all 300ms;
+}
+.opening_pack .purple:hover {
+    width: 165px;
+    filter: drop-shadow(0 0 30px purple);
+    transition: all 300ms;
 }
 
-.opening_pack .cardback_animate2:hover {
+.opening_pack .blue:hover {
     width: 165px;
-    filter: drop-shadow(0 0 30px yellow);
-    transition: all 150ms;
+    filter: drop-shadow(0 0 30px blue);
+    transition: all 300ms;
 }
+.opening_pack .white:hover {
+    width: 165px;
+    transition: all 300ms;
+}
+/*.opening_pack .cardback_animate2:hover {*/
+/*    width: 165px;*/
+/*    filter: drop-shadow(0 0 30px yellow);*/
+/*    transition: all 150ms;*/
+/*}*/
 
-.opening_pack .cardback_animate3:hover {
-    width: 165px;
-    filter: drop-shadow(0 0 30px yellow);
-    transition: all 150ms;
-}
+/*.opening_pack .cardback_animate3:hover {*/
+/*    width: 165px;*/
+/*    filter: drop-shadow(0 0 30px yellow);*/
+/*    transition: all 150ms;*/
+/*}*/
 
-.opening_pack .cardback_animate4:hover {
-    width: 165px;
-    filter: drop-shadow(0 0 30px yellow);
-    transition: all 150ms;
-}
+/*.opening_pack .cardback_animate4:hover {*/
+/*    width: 165px;*/
+/*    filter: drop-shadow(0 0 30px yellow);*/
+/*    transition: all 150ms;*/
+/*}*/
 
-.opening_pack .cardback_animate5:hover {
-    width: 165px;
-    filter: drop-shadow(0 0 30px yellow);
-    transition: all 150ms;
-}
+/*.opening_pack .cardback_animate5:hover {*/
+/*    width: 165px;*/
+/*    filter: drop-shadow(0 0 30px yellow);*/
+/*    transition: all 150ms;*/
+/*}*/
 
 .rotate1 {
     animation: cardopen1 0.5s linear forwards;
