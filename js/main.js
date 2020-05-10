@@ -468,11 +468,9 @@ let openpack = new Vue({
                     oldtime = 0;
                     this.time = 0;
                 } else {
-                    this.openCard(1);
-                    this.openCard(2);
-                    this.openCard(3);
-                    this.openCard(4);
-                    this.openCard(5);
+                    for (let i = 1; i <= 5; i++)
+                        if (!this.isRotate[i])
+                            this.openCard(i);
                 }
             }
         },
@@ -613,8 +611,8 @@ let openpack = new Vue({
                 window.location.assign('index.html');
             }, 800);
         },
-        clear:function (event) {
-            $(event.currentTarget).context.src='';
+        clear: function (event) {
+            $(event.currentTarget).context.src = '';
         }
     }
 });
