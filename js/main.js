@@ -1,3 +1,171 @@
+let cardpool = [{
+    src: 'img/BT_002.png',
+    quality: 'white',
+    profession: '法师',
+    type: '法术',
+    cost: 2,
+    attack: null,
+    blood: null
+},
+    {src: 'img/BT_003.png', quality: 'white', profession: '法师', type: '法术', cost: 3, attack: null, blood: null},
+    {src: 'img/BT_004.png', quality: 'blue', profession: '萨满', type: '随从', cost: 3, attack: null, blood: null},
+    {src: 'img/BT_006.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_008.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_009.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_010.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_011.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_014.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_018.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_019.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_020.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_021.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_022.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_024.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_025.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_026.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_028.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_042.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_072.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_100.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_101.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_102.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_106.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_109.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_110.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_113.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_114.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_115.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_117.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_120.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_121.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_123.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_124.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_126.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_127.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_128.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_129.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_130.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_131.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_132.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_133.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_134.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_135.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_136.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_138.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_140.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_155.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_156.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_159.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_160.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_163.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_187.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_188.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_190.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_196.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_197.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_198.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_199.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_201.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_202.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_203.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_205.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_210.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_211.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_212.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_213.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_214.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_230.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_233.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_249.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_252.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_253.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_254.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_255.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_256.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_257.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_258.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_262.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_291.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_292.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_300.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_301.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_302.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_304.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_305.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_306.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_307.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_309.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_321.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_334.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_341.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_423.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_429.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_430.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_480.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_486.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_491.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_493.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_496.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_509.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_514.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_601.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_701.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_702.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_703.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_707.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_709.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_710.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_711.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_713.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_714.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_715.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_716.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_717.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_720.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_721.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_722.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_723.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_724.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_726.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_727.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_728.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_729.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_730.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_731.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_732.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_733.png', quality: 'purple', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_734.png', quality: 'white', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_735.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_737.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_761.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_781.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_850.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
+    {src: 'img/BT_934.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null}
+];
+let goldpool = [];
+let purplepool = [];
+let bluepool = [];
+let whitepool = [];
+//开包概率，不用const是为了作弊
+let goldprobability = 0.01;
+let purpleprobability = 0.04;
+let blueprobability = 0.25;
+for (let i in cardpool) {
+    if (cardpool[i].quality === 'gold')
+        goldpool.push(cardpool[i]);
+    else if (cardpool[i].quality === 'purple')
+        purplepool.push(cardpool[i]);
+    else if (cardpool[i].quality === 'blue')
+        bluepool.push(cardpool[i]);
+    else if (cardpool[i].quality === 'white')
+        whitepool.push(cardpool[i]);
+}
+console.log(goldpool);
+console.log(goldpool.length);
+console.log(purplepool);
+console.log(bluepool);
+console.log(whitepool);
+
 function load() {
     $('.bigimgDiv div').fadeOut();
     $('.bigimgDiv img').fadeOut();
@@ -48,7 +216,7 @@ let collection = new Vue({
     methods: {
         //选择职业，通过:class实现
         chosen: function (num) {
-            for (i in this.profession_img)
+            for (let i in this.profession_img)
                 this.profession_img[i].isChosen = false;
             this.profession_img[num].isChosen = true;
             this.profession = this.profession_img[num].profession;
@@ -261,7 +429,10 @@ let openpack = new Vue({
         opening: false,
         isAnimate: [false, false, false, false, false, false],
         isRotate: [null, false, false, false, false, false],
-        time: 0
+        //用于防止连点
+        time: 0,
+        //给个初始值，防止显示不出
+        card: [null, 'img/BT_006.png', 'img/BT_006.png', 'img/BT_006.png', 'img/BT_006.png', 'img/BT_006.png']
     },
     mounted: function () {
         //监听必须用_this
@@ -335,8 +506,30 @@ let openpack = new Vue({
         },
         //开包
         openpack: function () {
+            //用:class让动画动起来!
             this.isAnimate = [true, true, true, true, true, true];
+            //防止乱点，开启mask
             this.mask = true;
+            //随机程序
+            this.randomCard();
+        },
+        randomCard: function () {
+            for (let i = 1; i <= 5; i++) {
+                let randomNum1 = Math.random();
+                if (randomNum1 <= goldprobability) {
+                    let randomNum2 = Math.random() * goldpool.length;
+                    this.card[i] = goldpool[Math.floor(randomNum2)].src;
+                } else if (randomNum1 > goldprobability && randomNum1 <= goldprobability + purpleprobability) {
+                    let randomNum2 = Math.random() * purplepool.length;
+                    this.card[i] = purplepool[Math.floor(randomNum2)].src;
+                } else if (randomNum1 > goldprobability + purpleprobability && randomNum1 <= goldprobability + purpleprobability + blueprobability) {
+                    let randomNum2 = Math.random() * bluepool.length;
+                    this.card[i] = bluepool[Math.floor(randomNum2)].src;
+                } else {
+                    let randomNum2 = Math.random() * whitepool.length;
+                    this.card[i] = whitepool[Math.floor(randomNum2)].src;
+                }
+            }
         },
         //完成按钮，重置属性
         closepack: function () {
@@ -347,7 +540,8 @@ let openpack = new Vue({
         },
         //翻转卡牌
         openCard: function (num) {
-            //这一行代码花了一个多小时...没这句看起来像废话的话无法执行..怀疑是引用类型的问题？浅拷贝，也可能是v-bind在数组某一项变化的时候无法生效的原因
+            //这一行代码花了一个多小时...没这句看起来像废话的话无法执行..怀疑是引用类型的问题？浅拷贝解决，也可能是v-bind在数组某一项变化的时候无法生效的原因
+            //两行的原因是不移除上一个动画开始不了下一个动画
             this.isAnimate = [this.isAnimate[0], this.isAnimate[1], this.isAnimate[2], this.isAnimate[3], this.isAnimate[4], this.isAnimate[5]];
             this.isAnimate[num] = false;
             this.isRotate[num] = true;
@@ -386,6 +580,9 @@ let openpack = new Vue({
                 this.settingClass = 'showSetting';
             this.mask = true;
             // console.log(this.settingClass);
+        },
+        zuobi:function(){
+            goldprobability=0.01?0.7:0.01;
         },
         close: function () {
             window.close();

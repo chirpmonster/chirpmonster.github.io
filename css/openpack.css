@@ -114,7 +114,7 @@
     }
     100% {
         width: 165px;
-        transform: translate(0, -160px) rotateY(180deg);
+        transform: translate(0, -160px) rotateY(90deg);
     }
 }
 
@@ -125,7 +125,7 @@
     }
     100% {
         width: 165px;
-        transform: translate(-180px, -80px) rotateY(180deg);
+        transform: translate(-180px, -80px) rotateY(90deg);
     }
 }
 
@@ -136,7 +136,7 @@
     }
     100% {
         width: 165px;
-        transform: translate(180px, -80px) rotateY(180deg);
+        transform: translate(180px, -80px) rotateY(90deg);
     }
 }
 
@@ -147,7 +147,7 @@
     }
     100% {
         width: 165px;
-        transform: translate(-100px, 160px) rotateY(180deg);
+        transform: translate(-100px, 160px) rotateY(90deg);
     }
 }
 
@@ -158,16 +158,80 @@
     }
     100% {
         width: 165px;
-        transform: translate(100px, 160px) rotateY(180deg);
+        transform: translate(100px, 160px) rotateY(90deg);
     }
 }
 
-@keyframes rotate {
+@keyframes cardopenback1 {
+    0% {
+        width: 205px;
+        transform: translate(-20px, -204px) rotateY(90deg);
+    }
+    50% {
+        width: 205px;
+        transform: translate(-20px, -204px) rotateY(90deg);
+    }
     100% {
-        transform: translateX(200px);
+        width: 205px;
+        transform: translate(-20px, -204px);
     }
 }
-
+@keyframes cardopenback2 {
+    0% {
+        width: 205px;
+        transform: translate(-200px, -124px) rotateY(90deg);
+    }
+    50% {
+        width: 205px;
+        transform: translate(-200px, -124px) rotateY(90deg);
+    }
+    100% {
+        width: 205px;
+        transform: translate(-200px, -124px);
+    }
+}
+@keyframes cardopenback3 {
+    0% {
+        width: 205px;
+        transform: translate(160px, -124px) rotateY(90deg);
+    }
+    50% {
+        width: 205px;
+        transform: translate(160px, -124px) rotateY(90deg);
+    }
+    100% {
+        width: 205px;
+        transform: translate(160px, -124px);
+    }
+}
+@keyframes cardopenback4 {
+    0% {
+        width: 205px;
+        transform: translate(-120px, 116px) rotateY(90deg);
+    }
+    50% {
+        width: 205px;
+        transform: translate(-120px, 116px) rotateY(90deg);
+    }
+    100% {
+        width: 205px;
+        transform: translate(-120px, 116px);
+    }
+}
+@keyframes cardopenback5 {
+    0% {
+        width: 205px;
+        transform: translate(80px, 116px) rotateY(90deg);
+    }
+    50% {
+        width: 205px;
+        transform: translate(80px, 116px) rotateY(90deg);
+    }
+    100% {
+        width: 205px;
+        transform: translate(80px, 116px);
+    }
+}
 body {
     font-family: Arial;
     padding: 0;
@@ -201,15 +265,17 @@ li {
     width: 1330px;
     height: 750px;
 }
-.space{
+
+.space {
     position: absolute;
     display: block;
     left: 100px;
     top: 100px;
     color: white;
     cursor: pointer;
-    z-index:999;
+    z-index: 999;
 }
+
 .pack {
     position: absolute;
     width: 200px;
@@ -226,7 +292,7 @@ li {
 }
 
 .opening_pack .animatePack_animate {
-    animation: opening 1s linear backwards;
+    animation: opening 1s linear forwards;
     z-index: 11;
 }
 
@@ -242,9 +308,12 @@ li {
     width: 150px;
     left: 35px;
     top: 40px;
-    opacity: 0;
-    filter: alpha(opacity=0);
     cursor: pointer;
+}
+
+.opening_pack .cardback img {
+    position: absolute;
+    width: 100%;
 }
 
 /*属性选择器失败*/
@@ -253,6 +322,46 @@ li {
 /*    filter: drop-shadow(0 0 30px yellow);*/
 /*    transition: all 150ms;*/
 /*}*/
+
+.cardback_animate1 {
+    animation: cardbackMove1 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.cardback_animate2 {
+    animation: cardbackMove2 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.cardback_animate3 {
+    animation: cardbackMove3 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.cardback_animate4 {
+    animation: cardbackMove4 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
+
+.cardback_animate5 {
+    animation: cardbackMove5 1s linear forwards;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    z-index: 11;
+    transition: all 1000ms;
+}
 
 .opening_pack .cardback_animate1:hover {
     width: 165px;
@@ -284,75 +393,67 @@ li {
     transition: all 150ms;
 }
 
-.opening_pack .cardback_animate1 {
-    animation: cardbackMove1 1s linear forwards;
-    opacity: 1;
-    filter: alpha(opacity=1);
-    z-index: 11;
-    transition: all 1000ms;
-}
-
-.opening_pack .cardback_animate2 {
-    animation: cardbackMove2 1s linear forwards;
-    opacity: 1;
-    filter: alpha(opacity=1);
-    z-index: 11;
-    transition: all 1000ms;
-}
-
-.opening_pack .cardback_animate3 {
-    animation: cardbackMove3 1s linear forwards;
-    opacity: 1;
-    filter: alpha(opacity=1);
-    z-index: 11;
-    transition: all 1000ms;
-}
-
-.opening_pack .cardback_animate4 {
-    animation: cardbackMove4 1s linear forwards;
-    opacity: 1;
-    filter: alpha(opacity=1);
-    z-index: 11;
-    transition: all 1000ms;
-}
-
-.opening_pack .cardback_animate5 {
-    animation: cardbackMove5 1s linear forwards;
-    opacity: 1;
-    filter: alpha(opacity=1);
-    z-index: 11;
-    transition: all 1000ms;
-}
-
 .rotate1 {
-    animation: cardopen1 1s linear forwards;
-    opacity: 1 !important;
-    filter: alpha(opacity=1) !important;
-    z-index: 11;
+    animation: cardopen1 0.5s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
 }
+
+.rotateback1 {
+    animation: cardopenback1 1s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
+}
+
 .rotate2 {
-    animation: cardopen2 1s linear forwards;
-    opacity: 1 !important;
-    filter: alpha(opacity=1) !important;
-    z-index: 11;
+    animation: cardopen2 0.5s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
+}
+.rotateback2 {
+    animation: cardopenback2 1s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
 }
 .rotate3 {
-    animation: cardopen3 1s linear forwards;
-    opacity: 1 !important;
-    filter: alpha(opacity=1) !important;
-    z-index: 11;
+    animation: cardopen3 0.5s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
+}
+.rotateback3 {
+    animation: cardopenback3 1s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
 }
 .rotate4 {
-    animation: cardopen4 1s linear forwards;
-    opacity: 1 !important;
-    filter: alpha(opacity=1) !important;
-    z-index: 11;
+    animation: cardopen4 0.5s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
+}
+.rotateback4 {
+    animation: cardopenback4 1s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
 }
 .rotate5 {
-    animation: cardopen5 1s linear forwards;
-    opacity: 1 !important;
-    filter: alpha(opacity=1) !important;
-    z-index: 11;
+    animation: cardopen5 0.5s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
+}
+.rotateback5 {
+    animation: cardopenback5 1s linear forwards;
+    /*opacity: 1 !important;*/
+    /*filter: alpha(opacity=1) !important;*/
+    /*z-index: 11;*/
 }
 .packFinish {
     position: absolute;
