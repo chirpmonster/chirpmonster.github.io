@@ -135,12 +135,12 @@ li {
     list-style: none;
 }
 
-.bigimgDiv {
+.bigImgDiv {
     position: absolute;
     width: 100%;
 }
 
-.bigimg {
+.bigImg {
     position: relative;
     width: 340px;
     z-index: 999;
@@ -148,7 +148,7 @@ li {
     left: 40vw;
 }
 
-.bigimgDiv div {
+.bigImgDiv div {
     position: relative;
     width:100%;
     z-index: 999;

@@ -13,8 +13,12 @@
     <link rel="stylesheet" type="text/css" href="css/openpack.css">
     <link rel="stylesheet" type="text/css" href="css/public.css">
 </head>
-<body>
-<div class="openPack" id="openPack" @mousemove="move">
+<body onload="load()">
+<div class="bigImgDiv">
+    <div onclick="load()">穷，买不起速度快的服务器，加载会慢点（预加载中，点击跳过）</div>
+    <img src="img/loading.gif" alt="" class="bigImg">
+</div>
+<div class="main" id="openPack" @mousemove="move">
     <audio src="audio/awashinalebutnaryamug.mp3" autoplay="autoplay" loop="loop"></audio>
     <audio src="" class="toggleAudio" autoplay="autoplay"></audio>
     <audio src="" class="queue1" autoplay="autoplay" @ended="clear"></audio>
@@ -27,6 +31,8 @@
     <audio src="" class="queue8" autoplay="autoplay" @ended="clear"></audio>
     <audio src="" class="queue9" autoplay="autoplay" @ended="clear"></audio>
     <audio src="" class="queue10" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue11" autoplay="autoplay" @ended="clear"></audio>
+    <audio src="" class="queue12" autoplay="autoplay" @ended="clear"></audio>
     <div class="space" @click="keydown_space">这是空格键(假装手机适配)</div>
     <img alt="" class="pack" id="staticPack" src="img/pack.png" ondragstart="return false;">
     <img alt="" class="pack" id="pack" :class="{drag:isDrag}" src="img/pack.png" ondragstart="return false;"
@@ -78,8 +84,8 @@
             <div class="friendsList_content">好友 - {{online}}在线</div>
         </div>
     </div>
-    <div class="gold">
-        <div>{{gold}}</div>
+    <div class="myGold">
+        <div>{{myGold}}</div>
     </div>
     <div class="setting" @mouseenter="hover" @click="toggleSetting"></div>
     <div class="settingList" :class="settingClass">

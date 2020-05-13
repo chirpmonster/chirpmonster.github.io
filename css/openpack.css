@@ -176,6 +176,7 @@
         transform: translate(-20px, -204px);
     }
 }
+
 @keyframes cardopenback2 {
     0% {
         width: 205px;
@@ -190,6 +191,7 @@
         transform: translate(-200px, -124px);
     }
 }
+
 @keyframes cardopenback3 {
     0% {
         width: 205px;
@@ -204,6 +206,7 @@
         transform: translate(160px, -124px);
     }
 }
+
 @keyframes cardopenback4 {
     0% {
         width: 205px;
@@ -218,6 +221,7 @@
         transform: translate(-120px, 116px);
     }
 }
+
 @keyframes cardopenback5 {
     0% {
         width: 205px;
@@ -232,6 +236,7 @@
         transform: translate(80px, 116px);
     }
 }
+
 body {
     font-family: Arial;
     padding: 0;
@@ -257,7 +262,32 @@ li {
     list-style: none;
 }
 
-.openPack {
+.bigImgDiv {
+    position: absolute;
+    width: 100%;
+}
+
+.bigImg {
+    position: relative;
+    width: 340px;
+    z-index: 999;
+    top: 50px;
+    left: 40vw;
+}
+
+.bigImgDiv div {
+    position: relative;
+    width:100%;
+    z-index: 999;
+    top: 300px;
+    text-align: center;
+    cursor: pointer;
+}
+.main {
+    display: none;
+}
+
+#openPack {
     position: relative;
     margin: 0 auto;
     background: url("../img/openpack.png") no-repeat;
@@ -369,6 +399,7 @@ li {
     filter: drop-shadow(0 0 30px yellow);
     transition: all 300ms;
 }
+
 .opening_pack .purple:hover {
     width: 165px;
     filter: drop-shadow(0 0 30px purple);
@@ -380,10 +411,12 @@ li {
     filter: drop-shadow(0 0 30px blue);
     transition: all 300ms;
 }
+
 .opening_pack .white:hover {
     width: 165px;
     transition: all 300ms;
 }
+
 /*.opening_pack .cardback_animate2:hover {*/
 /*    width: 165px;*/
 /*    filter: drop-shadow(0 0 30px yellow);*/
@@ -428,48 +461,56 @@ li {
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .rotateback2 {
     animation: cardopenback2 1s linear forwards;
     /*opacity: 1 !important;*/
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .rotate3 {
     animation: cardopen3 0.5s linear forwards;
     /*opacity: 1 !important;*/
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .rotateback3 {
     animation: cardopenback3 1s linear forwards;
     /*opacity: 1 !important;*/
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .rotate4 {
     animation: cardopen4 0.5s linear forwards;
     /*opacity: 1 !important;*/
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .rotateback4 {
     animation: cardopenback4 1s linear forwards;
     /*opacity: 1 !important;*/
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .rotate5 {
     animation: cardopen5 0.5s linear forwards;
     /*opacity: 1 !important;*/
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .rotateback5 {
     animation: cardopenback5 1s linear forwards;
     /*opacity: 1 !important;*/
     /*filter: alpha(opacity=1) !important;*/
     /*z-index: 11;*/
 }
+
 .packFinish {
     position: absolute;
     display: none;
@@ -601,7 +642,7 @@ li {
     cursor: pointer;
 }
 
-.gold {
+.myGold {
     position: absolute;
     height: 16px;
     width: 85px;
@@ -611,7 +652,7 @@ li {
     border-radius: 5px;
 }
 
-.gold div {
+.myGold div {
     color: white;
     float: right;
     margin: 0 5px;

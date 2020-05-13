@@ -46,7 +46,27 @@ br {
 li {
     list-style: none;
 }
+.bigImgDiv {
+    position: absolute;
+    width: 100%;
+}
 
+.bigImg {
+    position: relative;
+    width: 340px;
+    z-index: 999;
+    top: 50px;
+    left: 40vw;
+}
+
+.bigImgDiv div {
+    position: relative;
+    width:100%;
+    z-index: 999;
+    top: 300px;
+    text-align: center;
+    cursor: pointer;
+}
 .mask {
     position: absolute;
     height: 750px;
@@ -55,6 +75,7 @@ li {
 }
 
 .main {
+    display: none;
     position: relative;
     margin: 0 auto;
     background: url("../img/index.png") no-repeat;
@@ -360,7 +381,7 @@ li {
     cursor: pointer;
 }
 
-.gold {
+.myGold {
     position: absolute;
     height: 16px;
     width: 85px;
@@ -370,7 +391,7 @@ li {
     border-radius: 5px;
 }
 
-.gold div {
+.myGold div {
     color: white;
     float: right;
     margin: 0 5px;

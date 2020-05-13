@@ -1,4 +1,4 @@
-let cardpool = [
+let card_pool = [
     {src: 'img/BT_002.png', quality: 'white', profession: '法师', type: '法术', cost: 2, attack: null, blood: null},
     {src: 'img/BT_003.png', quality: 'white', profession: '法师', type: '法术', cost: 3, attack: null, blood: null},
     {src: 'img/BT_004.png', quality: 'blue', profession: '萨满', type: '随从', cost: 3, attack: null, blood: null},
@@ -135,33 +135,33 @@ let cardpool = [
     {src: 'img/BT_850.png', quality: 'gold', profession: '法师', type: '', cost: 2, attack: null, blood: null},
     {src: 'img/BT_934.png', quality: 'blue', profession: '法师', type: '', cost: 2, attack: null, blood: null}
 ];
-let goldpool = [];
-let purplepool = [];
-let bluepool = [];
-let whitepool = [];
+let gold_pool = [];
+let purple_pool = [];
+let blue_pool = [];
+let white_pool = [];
 //开包概率，不用const是为了作弊
-let goldprobability = 0.01;
-let purpleprobability = 0.04;
-let blueprobability = 0.25;
-for (let i in cardpool) {
-    if (cardpool[i].quality === 'gold')
-        goldpool.push(cardpool[i]);
-    else if (cardpool[i].quality === 'purple')
-        purplepool.push(cardpool[i]);
-    else if (cardpool[i].quality === 'blue')
-        bluepool.push(cardpool[i]);
-    else if (cardpool[i].quality === 'white')
-        whitepool.push(cardpool[i]);
+let gold_probability = 0.01;
+let purple_probability = 0.04;
+let blue_probability = 0.25;
+for (let i in card_pool) {
+    if (card_pool[i].quality === 'gold')
+        gold_pool.push(card_pool[i]);
+    else if (card_pool[i].quality === 'purple')
+        purple_pool.push(card_pool[i]);
+    else if (card_pool[i].quality === 'blue')
+        blue_pool.push(card_pool[i]);
+    else if (card_pool[i].quality === 'white')
+        white_pool.push(card_pool[i]);
 }
-// console.log(goldpool);
-// console.log(goldpool.length);
-// console.log(purplepool);
-// console.log(bluepool);
-// console.log(whitepool);
+// console.log(gold_pool);
+// console.log(gold_pool.length);
+// console.log(purple_pool);
+// console.log(blue_pool);
+// console.log(white_pool);
 
 function load() {
-    $('.bigimgDiv div').fadeOut();
-    $('.bigimgDiv img').fadeOut();
+    $('.bigImgDiv div').fadeOut(100);
+    $('.bigImgDiv img').fadeOut(100);
     $('.main').fadeIn(1000);
 }
 
@@ -195,7 +195,7 @@ let collection = new Vue({
             'img/touxiang7.png'],
         profession: '萨满', //显示的职业
         isShadow: false,
-        bigimg: {src: 'img/loading.gif', num: 0}, //改变大图地址
+        bigImg: {src: 'img/loading.gif', num: 0}, //改变大图地址
         timer: '', //定时器
         currentNum: '', //识别当前的点击的费用
         currentTarget: '', //记录操作的div
@@ -218,35 +218,35 @@ let collection = new Vue({
         cardMove: function (num) {
             $('.toggleAudio').attr('src', 'audio/Card_Transition_Out.mp3');
             //移除先前操作的class，用于解决z-index错位问题
-            this.card_img[this.bigimg.num].class = '';
-            //给bigimg一个src
-            this.bigimg.src = this.card_img[num].src;
-            //保存当前bigimg的序号
-            this.bigimg.num = num;
+            this.card_img[this.bigImg.num].class = '';
+            //给bigImg一个src
+            this.bigImg.src = this.card_img[num].src;
+            //保存当前bigImg的序号
+            this.bigImg.num = num;
             //添加带有移动动画的class
             this.card_img[num].class = 'cardMove' + num;
             //添加遮罩层，通过:class='{shadow:isShadow}'实现
             this.isShadow = true;
-            //显示bigimg
+            //显示bigImg
             this.timer = setTimeout(function () {
                 //解决窗口模式下的错位问题
                 let top = $('.absimg').eq(num).offset().top;
                 let left = $('.absimg').eq(num).offset().left;
-                $('.bigimg').css('top', top);
-                $('.bigimg').css('left', left);
-                $('.bigimg').fadeIn(100);
+                $('.bigImg').css('top', top);
+                $('.bigImg').css('left', left);
+                $('.bigImg').fadeIn(100);
             }, 300);
         },
         //点掉大图，通过遮罩层实现点击事件，通过:class实现动画切换
-        hidebigimg: function () {
+        hidebigImg: function () {
             $('.toggleAudio').attr('src', 'audio/Card_Transition_Out.mp3');
             this.isShadow = false;
             //添加带有隐藏的动画的class
-            this.card_img[this.bigimg.num].class = 'hideCard' + this.bigimg.num;
+            this.card_img[this.bigImg.num].class = 'hideCard' + this.bigImg.num;
             //中止出现动画，防止连续点击出现bug
             clearTimeout(this.timer);
-            //隐藏bigimg
-            $('.bigimg').stop().css('display', 'none');
+            //隐藏bigImg
+            $('.bigImg').stop().css('display', 'none');
         },
         //选择法力消耗
         clicknums: function (event) {
@@ -322,7 +322,7 @@ let index = new Vue({
         nearby: 0,
         online: 0,
         friendsList: false,
-        gold: 1000,
+        myGold: 1000,
         settingClass: ''
     },
     mounted: function () {
@@ -422,7 +422,7 @@ let openpack = new Vue({
         nearby: 0,
         online: 0,
         friendsList: false,
-        gold: 1000,
+        myGold: 1000,
         settingClass: '',
         opening: false,
         isAnimate: [false, false, false, false, false, false],
@@ -430,7 +430,7 @@ let openpack = new Vue({
         //用于防止连点
         time: 0,
         //给个初始值，防止显示不出
-        card: [null, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}, {src: 'img/BT_006.png'}]
+        card: [null, {src: ''}, {src: ''}, {src: ''}, {src: ''}, {src: ''}]
     },
     mounted: function () {
         //监听必须用_this
@@ -514,18 +514,18 @@ let openpack = new Vue({
         randomCard: function () {
             for (let i = 1; i <= 5; i++) {
                 let randomNum1 = Math.random();
-                if (randomNum1 <= goldprobability) {
-                    let randomNum2 = Math.random() * goldpool.length;
-                    this.card[i] = goldpool[Math.floor(randomNum2)];
-                } else if (randomNum1 > goldprobability && randomNum1 <= goldprobability + purpleprobability) {
-                    let randomNum2 = Math.random() * purplepool.length;
-                    this.card[i] = purplepool[Math.floor(randomNum2)];
-                } else if (randomNum1 > goldprobability + purpleprobability && randomNum1 <= goldprobability + purpleprobability + blueprobability) {
-                    let randomNum2 = Math.random() * bluepool.length;
-                    this.card[i] = bluepool[Math.floor(randomNum2)];
+                if (randomNum1 <= gold_probability) {
+                    let randomNum2 = Math.random() * gold_pool.length;
+                    this.card[i] = gold_pool[Math.floor(randomNum2)];
+                } else if (randomNum1 > gold_probability && randomNum1 <= gold_probability + purple_probability) {
+                    let randomNum2 = Math.random() * purple_pool.length;
+                    this.card[i] = purple_pool[Math.floor(randomNum2)];
+                } else if (randomNum1 > gold_probability + purple_probability && randomNum1 <= gold_probability + purple_probability + blue_probability) {
+                    let randomNum2 = Math.random() * blue_pool.length;
+                    this.card[i] = blue_pool[Math.floor(randomNum2)];
                 } else {
-                    let randomNum2 = Math.random() * whitepool.length;
-                    this.card[i] = whitepool[Math.floor(randomNum2)];
+                    let randomNum2 = Math.random() * white_pool.length;
+                    this.card[i] = white_pool[Math.floor(randomNum2)];
                 }
             }
         },
@@ -556,7 +556,7 @@ let openpack = new Vue({
         },
         //音效队列，防止连续开多张卡的时候音效相互覆盖
         queueAudio: function (src) {
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 1; i <= 12; i++) {
                 let $queue = $('.queue' + i);
                 if ($queue.attr('src') === '') {
                     $queue.attr('src', src);
@@ -599,7 +599,10 @@ let openpack = new Vue({
             // console.log(this.settingClass);
         },
         zuobi: function () {
-            goldprobability = 0.01 ? 0.7 : 0.01;
+            gold_probability = 0.01 ? 0.6 : 0.01;
+            purple_probability = 0.04 ? 0.25 : 0.04;
+            blue_probability = 0.25 ? 0.1 : 0.25;
+            this.toggleSetting();
         },
         close: function () {
             window.close();

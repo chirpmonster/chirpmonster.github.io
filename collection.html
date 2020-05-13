@@ -16,11 +16,11 @@
 <audio src="" class="toggleAudio" autoplay="autoplay"></audio>
 <audio src="audio/playingwithafulldeck.mp3" autoplay="autoplay" loop="loop"></audio>
 <div id="collection">
-    <div class="bigimgDiv">
-        <div onclick="load()">github服务器在国外，加载会很慢~点击此处跳过</div>
-        <img :src="bigimg.src" alt="" class="bigimg">
+    <div class="bigImgDiv">
+        <div onclick="load()">穷，买不起速度快的服务器，加载会慢点（预加载中，点击跳过）</div>
+        <img :src="bigImg.src" alt="" class="bigImg">
     </div>
-    <div :class="{mask:isShadow}" @click="hidebigimg"></div>
+    <div :class="{mask:isShadow}" @click="hidebigImg"></div>
     <div class="main" :class="{shadow:isShadow}">
         <div class="all_cards">
             <ul class="career">
