@@ -1,9 +1,9 @@
 <h2>2020.5.13</h2>
 1.云服务器使用成功!
 <br>
-121.42.8.163
+http://121.42.8.163
 <br>
-www.yingyingguai.club (然而因为服务器时间短，无法备案...)
+http://yingyingguai.club (然而因为服务器时间短，无法备案...)
 <br>
 2.修复了一个css的bug，原因是橙卡我命名为gold，金币也命名为gold，所以有一个显示小bug
 <br>
