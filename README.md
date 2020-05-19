@@ -1,5 +1,8 @@
+<h2>2020.5.19</h2>
+1.解决了一个bug：php返回多个JSON对象会是{}{}{}的形式，通过服务端echo json_encode($row);echo "!";客户端let data=res.data.split('!');完美解决
 <h2>2020.5.18</h2>
-1.花了一天时间装好了MYSQL和PHP环境，并且一步一步跟着网上的教程完成前端Axios连接PHP，PHP连接MYSQL，明天就可以修改我的程序了：PHP从MYSQL获取内容返回JSON
+1.花了一天时间装好了MYSQL和PHP环境，并且一步一步跟着网上的教程完成前端Axios连接PHP，PHP连接MYSQL，明天就可以修改我的程序了：
+PHP从MYSQL获取内容返回JSON
 <br>
 2.域名审核完了，挺快的，把域名和服务器连接了，域名可以直接访问网站http://yingyingguai.club
 <br>
