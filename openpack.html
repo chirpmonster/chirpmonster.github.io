@@ -13,6 +13,7 @@
     <script src="frame/axios.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/openpack.css">
     <link rel="stylesheet" type="text/css" href="css/public.css">
+    <script src="js/package.js"></script>
 </head>
 <body onload="load()">
 <div class="bigImgDiv">
@@ -20,6 +21,15 @@
     <img src="img/loading.gif" alt="" class="bigImg">
 </div>
 <div class="main" id="openPack" @mousemove="move">
+    <div class="statistics">
+        <div>白卡:{{whiteNum}}</div>
+        <div>蓝卡:{{blueNum}}</div>
+        <div>紫卡:{{purpleNum}}</div>
+        <div>橙卡:{{goldNum}}</div>
+        <div :class="whiteNum+blueNum+purpleNum+goldNum>0? 'showHistory':'hide'">查看抽卡历史
+            <div class="history">{{this.history}}</div>
+        </div>
+    </div>
     <audio src="audio/awashinalebutnaryamug.mp3" autoplay="autoplay" loop="loop"></audio>
     <audio src="" class="toggleAudio" autoplay="autoplay"></audio>
     <audio src="" class="queue1" autoplay="autoplay" @ended="clear"></audio>
@@ -34,7 +44,7 @@
     <audio src="" class="queue10" autoplay="autoplay" @ended="clear"></audio>
     <audio src="" class="queue11" autoplay="autoplay" @ended="clear"></audio>
     <audio src="" class="queue12" autoplay="autoplay" @ended="clear"></audio>
-    <div class="space" @click="keydown_space">这是空格键(假装手机适配)</div>
+    <div class="space" @click="keydown_space"></div>
     <img alt="" class="pack" id="staticPack" src="img/pack.png" ondragstart="return false;">
     <img alt="" class="pack" id="pack" :class="{drag:isDrag}" src="img/pack.png" ondragstart="return false;"
          @mousedown="start" @mouseup="stop">
@@ -95,5 +105,5 @@
     </div>
 </div>
 </body>
-<script src="js/main.js"></script>
+<script src="js/openpack.js"></script>
 </html>

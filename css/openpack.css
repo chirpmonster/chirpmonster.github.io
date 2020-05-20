@@ -261,7 +261,9 @@ br {
 li {
     list-style: none;
 }
-
+.hide{
+    display: none;
+}
 .bigImgDiv {
     position: absolute;
     width: 100%;
@@ -277,12 +279,13 @@ li {
 
 .bigImgDiv div {
     position: relative;
-    width:100%;
+    width: 100%;
     z-index: 999;
     top: 300px;
     text-align: center;
     cursor: pointer;
 }
+
 .main {
     display: none;
 }
@@ -298,15 +301,35 @@ li {
 
 .space {
     position: absolute;
-    display: block;
     left: 400px;
     top: 50px;
+    width: 100px;
+    height: 100px;
     color: white;
     cursor: pointer;
     z-index: 999;
     font-size: 30px;
 }
 
+.statistics {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    color: white;
+    z-index: 10;
+}
+.statistics .showHistory{
+    display: block;
+    cursor: pointer;
+    font-size: 5px;
+}
+.statistics .showHistory .history{
+    display: none;
+}
+.statistics .showHistory:hover .history{
+    display: block;
+    width: 430px;
+}
 .pack {
     position: absolute;
     width: 200px;
