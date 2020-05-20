@@ -1,3 +1,9 @@
+<h2>2020.5.20</h2>
+1.把main.js拆分成每个页面一个js
+<br>
+2.开包界面增加统计功能
+<br>
+2.添加开包历史功能（待优化）
 <h2>2020.5.19</h2>
 1.解决了一个bug：php返回多个JSON对象会是{}{}{}的形式，通过服务端echo json_encode($row);echo "!";客户端let data=res.data.split('!');完美解决
 <br>
